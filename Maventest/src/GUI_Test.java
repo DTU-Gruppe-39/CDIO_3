@@ -1,27 +1,34 @@
 import gui_main.GUI;
 
 import java.awt.Color;
+
+import javax.swing.border.Border;
+
 import gui_fields.GUI_Player;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Shipping;
 import gui_fields.GUI_Street;
+import gui_fields.GUI_Ownable;
+import gui_fields.GUI_Start;
 public class GUI_Test {
 
 public static void main(String[] args) {
 	
 	GUI_Field[] fields = new GUI_Field[25];
 	
-		fields[0] = new GUI_Street();
-		fields[0].setBackGroundColor(Color.white);
+		fields[0] = new GUI_Start();
+		fields[0].setBackGroundColor(Color.RED);
+		fields[0].setForeGroundColor(Color.white);
 		fields[0].setTitle("START");
+		fields[0].setDescription("LÆS FRA ARRAY");
 	
-		fields[1] = new GUI_Street();
-		fields[1].setBackGroundColor(Color.white);
-		fields[1].setTitle("START");
+		fields[1] = new GUI_Shipping();
+
 		
-		fields[2] = new GUI_Street();
+		fields[2] = new GUI_Shipping();
 		fields[2].setBackGroundColor(Color.white);
-		fields[2].setTitle("START");
+		fields[2].setTitle("LÆS FRA ARRAY");
+		fields[2].setDescription("LÆS FRA ARRAY");
 		
 		fields[3] = new GUI_Street();
 		fields[3].setBackGroundColor(Color.white);
@@ -111,6 +118,7 @@ public static void main(String[] args) {
 		fields[24].setBackGroundColor(Color.white);
 		fields[24].setTitle("START");
 		
+	
 		
 		
 	GUI gui = new GUI(fields);
