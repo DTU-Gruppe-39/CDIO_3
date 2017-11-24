@@ -5,7 +5,7 @@ public class Spil {
 
 	int FieldNumb = 24;
 	int 	Attribute = 4;
-	int Feilds[][] = new int [FieldNumb][Attribute];  
+	int Feilds[][] = new int [FieldNumb][Attribute];  //simple array to determine what field the player is on.
 
 
 }
