@@ -6,14 +6,13 @@ public class ListOfPlayers {
 	public ListOfPlayers(int antal ) {
 		Players= new Player[antal];
 		for (int i = 0;i < antal;i++)
-			Players[i]=new Player();
+			Players[i]=new Player("PlayerX", 1, 2, 20);
 	} 
 
 	public void addplayer(int antal){
 		String[] navne = {"Peter ","Lene  ","Jan   ","Tobias","Jytte ","Lone  "};
 		for (int i=0; i<antal;i++){
-			Player[i].setNavn(navne[i]);
-			Player[i].setColor(i);
+			Players[i].setName(navne[i]);
 		}	
 	}	
 
