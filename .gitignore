@@ -54,3 +54,8 @@ buildNumber.properties
 log/
 target/
 *.MF
+*.properties
+*.properties
+*.MF
+*.MF
+Maventest/target/classes/META-INF/MANIFEST.MF
