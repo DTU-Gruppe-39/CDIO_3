@@ -1,3 +1,4 @@
+package boundary;
 import gui_main.GUI;
 
 import java.awt.Color;
