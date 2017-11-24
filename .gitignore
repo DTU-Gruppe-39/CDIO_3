@@ -59,3 +59,7 @@ target/
 *.MF
 *.MF
 Maventest/target/classes/META-INF/MANIFEST.MF
+*.MF
+*.properties
+Maventest/target/classes/META-INF/MANIFEST.MF
+Maventest/target/classes/META-INF/maven/group39/Maventest/pom.properties
