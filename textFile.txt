@@ -4,11 +4,7 @@ Pizzariaet
 Chance
 Slikbutikken
 Iskiosken
-<<<<<<< HEAD
 På Besøg (i fængsel)
-=======
-På Besøg
->>>>>>> Develop
 Museet
 Biblioteket
 Chance
@@ -25,8 +21,5 @@ Bowlinghallen
 Zoo
 Chance
 Vandlandet
-<<<<<<< HEAD
 Strandpromenaden
-=======
-Strandpromenaden
->>>>>>> Develop
+
