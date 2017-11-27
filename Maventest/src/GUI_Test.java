@@ -17,6 +17,12 @@ import gui_fields.GUI_Tax;
 import gui_main.GUI;
 public class GUI_Test {
 	private static String [] titles;
+	private static int numberOfPlayers;
+
+	public static int getNumberOfPlayers() {
+		return numberOfPlayers;
+	}
+
 
 	public static void main(String[] args) throws IOException {
 		readText();
@@ -84,6 +90,8 @@ public class GUI_Test {
 
 
 		System.out.println(Arrays.toString(titles));
+		numberOfPlayers = gui.getUserInteger("                             Indtast antal spillere", 2, 4);
+		System.out.println(numberOfPlayers);
 	}
 
 
