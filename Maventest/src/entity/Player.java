@@ -7,6 +7,14 @@ public class Player {
 	private boolean isDead;
 	private boolean isWinner;
 
+	
+	public Player () {
+		TwoDice dice = new TwoDice();
+		this.dice = dice;
+		isDead = false;
+		isWinner = false;
+	}
+	
 	public TwoDice getDice() {
 		return dice;
 	}
@@ -35,12 +43,6 @@ public class Player {
 		this.name = name;
 	}
 
-	public Player () {
-		TwoDice dice = new TwoDice();
-		this.dice = dice;
-		isDead = false;
-		isWinner = false;
-	}
 	
 	public boolean isDead() {
 		return isDead;

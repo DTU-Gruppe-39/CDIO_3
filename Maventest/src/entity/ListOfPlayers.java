@@ -1,4 +1,7 @@
 package entity;
+
+import boundary.GUI_Test;
+
 public class ListOfPlayers {
 
 	private Player[] Players;
@@ -10,9 +13,9 @@ public class ListOfPlayers {
 	} 
 
 	public void addplayer(int antal){
-		String[] navne = {"Peter ","Lene  ","Jan   ","Tobias","Jytte ","Lone  "};
+		String[] names = GUI_Test.getNames();
 		for (int i=1; i <= antal; i++){
-			Players[i].setName(navne[i]);
+			Players[i].setName(names[i]);
 		}	
 	}	
 

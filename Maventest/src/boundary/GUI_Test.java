@@ -19,7 +19,15 @@ import gui_fields.GUI_Tax;
 import gui_main.GUI;
 public class GUI_Test {
 	private static String [] titles;
+	private static String [] names;
+	
+	public static String[] getNames() {
+		return names;
+	}
+
 	private static int numberOfPlayers;
+	
+
 
 	public static int getNumberOfPlayers() {
 		return numberOfPlayers;
@@ -91,11 +99,15 @@ public class GUI_Test {
 		gui.addPlayer(new GUI_Player("BRIAN", 1000));
 
 
-		System.out.println(Arrays.toString(titles));
+//		System.out.println(Arrays.toString(titles));
 		numberOfPlayers = gui.getUserInteger("                             Indtast antal spillere", 2, 4);
+		System.out.println(numberOfPlayers);
+		
+		names = new String [numberOfPlayers];
 		for (int i = 0; i < numberOfPlayers; i++ ) {
-			gui.getUserString("Spiller " + (i + 1) + " indtast navn");
+			names[i] = gui.getUserString("Spiller " + (i + 1) + " indtast navn");
 		}
+		System.out.println(Arrays.toString(names));
 	}
 
 
