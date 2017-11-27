@@ -4,6 +4,8 @@ public class Player {
 	private String name;
 	private TwoDice dice;
 	private AccountBalance account;
+	private boolean isDead;
+	private boolean isWinner;
 
 	public TwoDice getDice() {
 		return dice;
@@ -33,10 +35,26 @@ public class Player {
 		this.name = name;
 	}
 
-	public Player (String name, int one, int two, int balance) {
-		this.name = name;
-		this.account = new AccountBalance(balance);
-		TwoDice dice = new TwoDice(one, two);
+	public Player () {
+		TwoDice dice = new TwoDice();
 		this.dice = dice;
+		isDead = false;
+		isWinner = false;
+	}
+	
+	public boolean isDead() {
+		return isDead;
+	}
+
+	public void setDead(boolean isDeath) {
+		this.isDead = isDeath;
+	}
+
+	public boolean isWinner() {
+		return isWinner;
+	}
+
+	public void setWinner(boolean vinder) {
+		this.isWinner = vinder;
 	}
 }

@@ -5,8 +5,8 @@ public class ListOfPlayers {
 
 	public ListOfPlayers(int antal ) {
 		Players= new Player[antal];
-		for (int i = 0;i < antal;i++)
-			Players[i]=new Player("PlayerX", 1, 2, 20);
+		for (int i = 0; i < antal; i++)
+			Players[i]=new Player();
 	} 
 
 	public void addplayer(int antal){
