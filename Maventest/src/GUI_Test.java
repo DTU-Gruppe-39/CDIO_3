@@ -91,7 +91,9 @@ public class GUI_Test {
 
 		System.out.println(Arrays.toString(titles));
 		numberOfPlayers = gui.getUserInteger("                             Indtast antal spillere", 2, 4);
-		System.out.println(numberOfPlayers);
+		for (int i = 0; i < numberOfPlayers; i++ ) {
+			gui.getUserString("Spiller " + (i + 1) + " indtast navn");
+		}
 	}
 
 
