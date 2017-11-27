@@ -67,3 +67,5 @@ Maventest/target/classes/META-INF/MANIFEST.MF
 *.properties
 Maventest/target/classes/META-INF/MANIFEST.MF
 Maventest/target/classes/META-INF/maven/group39/Maventest/pom.properties
+
+Maventest/target/classes/GUI_Test.class
