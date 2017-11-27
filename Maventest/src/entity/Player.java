@@ -46,15 +46,15 @@ public class Player {
 		return isDead;
 	}
 
-	public void setDead(boolean isDeath) {
-		this.isDead = isDeath;
+	public void setDead(boolean isDead) {
+		this.isDead = isDead;
 	}
 
 	public boolean isWinner() {
 		return isWinner;
 	}
 
-	public void setWinner(boolean vinder) {
-		this.isWinner = vinder;
+	public void setWinner(boolean Winner) {
+		this.isWinner = Winner;
 	}
 }

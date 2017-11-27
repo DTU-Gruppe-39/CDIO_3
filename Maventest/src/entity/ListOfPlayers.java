@@ -11,7 +11,7 @@ public class ListOfPlayers {
 
 	public void addplayer(int antal){
 		String[] navne = {"Peter ","Lene  ","Jan   ","Tobias","Jytte ","Lone  "};
-		for (int i=0; i<antal;i++){
+		for (int i=1; i <= antal; i++){
 			Players[i].setName(navne[i]);
 		}	
 	}	
