@@ -41,6 +41,22 @@ public class ListOfPlayers {
 		index = ++index % Players.length;
 		return index;
 	}
+	public void AddFunds(int antal) {
+		switch (antal) {
+		case 2:
+			for(int i=1; i <= antal; i++) {
+				Players[i].setBalance(20);
+			} break;
+		case 3:
+			for(int i=1; i <= antal; i++) {
+				Players[i].setBalance(18);
+			} break;	
+		case 4:
+			for(int i=1; i <= antal; i++) {
+				Players[i].setBalance(16);
+			} break;	
+	}
+}
 }
 
 
