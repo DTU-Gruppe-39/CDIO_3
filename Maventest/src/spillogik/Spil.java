@@ -87,7 +87,7 @@ public class Spil {
 			}
 		}
 		setFields(field);
-		System.out.println(Arrays.deepToString(Fields));
+//		System.out.println(Arrays.deepToString(Fields));
 	}
 
 }

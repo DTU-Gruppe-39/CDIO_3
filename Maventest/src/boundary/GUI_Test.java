@@ -20,21 +20,19 @@ import gui_main.GUI;
 public class GUI_Test {
 	private static String [] titles;
 	private static String [] names;
+	private static int numberOfPlayers;
+	
 	
 	public static String[] getNames() {
 		return names;
 	}
-
-	private static int numberOfPlayers;
-	
-
 
 	public static int getNumberOfPlayers() {
 		return numberOfPlayers;
 	}
 
 
-	public static void main(String[] args) throws IOException {
+	public static void GUILauncher() throws IOException {
 		readText();
 
 		GUI_Field[] fields = new GUI_Field[24];
@@ -101,13 +99,13 @@ public class GUI_Test {
 
 //		System.out.println(Arrays.toString(titles));
 		numberOfPlayers = gui.getUserInteger("                             Indtast antal spillere", 2, 4);
-		System.out.println(numberOfPlayers);
+//		System.out.println(numberOfPlayers);
 		
 		names = new String [numberOfPlayers];
 		for (int i = 0; i < numberOfPlayers; i++ ) {
 			names[i] = gui.getUserString("Spiller " + (i + 1) + " indtast navn");
 		}
-		System.out.println(Arrays.toString(names));
+//		System.out.println(Arrays.toString(names));
 	}
 
 

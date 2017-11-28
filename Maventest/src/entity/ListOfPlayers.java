@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.Arrays;
+
 import boundary.GUI_Test;
 
 public class ListOfPlayers {
@@ -8,14 +10,14 @@ public class ListOfPlayers {
 
 	public ListOfPlayers(int antal ) {
 		Players= new Player[antal];
-		for (int i = 0; i < antal; i++)
+		for (int i = 1; i < antal; i++)
 			Players[i]=new Player();
 	} 
 
 	public void addplayer(int antal){
 		String[] names = GUI_Test.getNames();
 		for (int i=1; i <= antal; i++){
-			Players[i].setName(names[i]);
+			Players[i].setName(names[(i - 1)]);
 		}	
 	}	
 
