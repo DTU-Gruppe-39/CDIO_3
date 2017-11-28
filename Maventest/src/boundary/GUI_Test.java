@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import desktop_codebehind.Car;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Chance;
 import gui_fields.GUI_Field;
@@ -87,17 +86,17 @@ public class GUI_Test {
 		fields[23] = new GUI_Street(titles[23], "M5", titles[23], "M5", Color.BLUE, Color.WHITE);
 		GUI gui = new GUI(fields);
 
-		GUI_Car one = new GUI_Car();
-			one.setPrimaryColor(Color.RED);
-			
-		GUI_Car two = new GUI_Car();
-			two.setPrimaryColor(Color.YELLOW);
-		
-		GUI_Car three = new GUI_Car();
-			three.setPrimaryColor(Color.cyan);
-		
-		GUI_Car four = new GUI_Car();
-			four.setPrimaryColor(Color.WHITE);
+//		GUI_Car one = new GUI_Car();
+//			one.setPrimaryColor(Color.RED);
+//			
+//		GUI_Car two = new GUI_Car();
+//			two.setPrimaryColor(Color.YELLOW);
+//		
+//		GUI_Car three = new GUI_Car();
+//			three.setPrimaryColor(Color.cyan);
+//		
+//		GUI_Car four = new GUI_Car();
+//			four.setPrimaryColor(Color.WHITE);
 			
 
 //		System.out.println(Arrays.toString(titles));
@@ -109,11 +108,74 @@ public class GUI_Test {
 			names[i] = gui.getUserString("Spiller " + (i + 1) + " indtast navn");
 		}
 		
-		GUI_Player hej = new GUI_Player(names[0]);
-		gui.addPlayer(hej);
-//		gui.addPlayer(new GUI_Player(names[1], 100, two));
-//		gui.addPlayer(new GUI_Player(names[2], 100, three));
-		fields[0].setCar(hej, true);
+		switch(numberOfPlayers) {
+			case 2: 
+				GUI_Car one = new GUI_Car();
+				one.setPrimaryColor(Color.RED);
+				GUI_Player o = new GUI_Player(names[0],20, one);
+				gui.addPlayer(o);
+				fields[0].setCar(o, true);
+				
+				GUI_Car two = new GUI_Car();
+				two.setPrimaryColor(Color.yellow);
+				GUI_Player t = new GUI_Player(names[1],20, two);
+				gui.addPlayer(t);
+				fields[0].setCar(t, true);
+				break;
+				
+			case 3:
+				GUI_Car three = new GUI_Car();
+				three.setPrimaryColor(Color.RED);
+				GUI_Player th = new GUI_Player(names[0],20, three);
+				gui.addPlayer(th);
+				fields[0].setCar(th, true);
+				
+				GUI_Car four = new GUI_Car();
+				four.setPrimaryColor(Color.yellow);
+				GUI_Player fo = new GUI_Player(names[1],20, four);
+				gui.addPlayer(fo);
+				fields[0].setCar(fo, true);
+				
+				GUI_Car five = new GUI_Car();
+				five.setPrimaryColor(Color.WHITE);
+				GUI_Player fi = new GUI_Player(names[2],20, five);
+				gui.addPlayer(fi);
+				fields[0].setCar(fi, true);
+
+				break;
+				
+			case 4:
+				GUI_Car six = new GUI_Car();
+				six.setPrimaryColor(Color.RED);
+				GUI_Player si = new GUI_Player(names[0],20, six);
+				gui.addPlayer(si);
+				fields[0].setCar(si, true);
+				
+				GUI_Car seven = new GUI_Car();
+				seven.setPrimaryColor(Color.yellow);
+				GUI_Player se = new GUI_Player(names[1],20, seven);
+				gui.addPlayer(se);
+				fields[0].setCar(se, true);
+				
+				GUI_Car eight = new GUI_Car();
+				eight.setPrimaryColor(Color.WHITE);
+				GUI_Player ei = new GUI_Player(names[2],20, eight);
+				gui.addPlayer(ei);
+				fields[0].setCar(ei, true);
+				
+				GUI_Car nine = new GUI_Car();
+				nine.setPrimaryColor(Color.cyan);
+				GUI_Player ni = new GUI_Player(names[3],20, nine);
+				gui.addPlayer(ni);
+				fields[0].setCar(ni, true);
+				
+				break;
+			
+			default: 
+				break;
+		}
+		
+		
 //		System.out.println(Arrays.toString(names));
 	}
 
