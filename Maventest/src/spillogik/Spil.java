@@ -3,7 +3,6 @@ package spillogik;
 import java.io.IOException;
 
 import boundary.GUI_Test;
-import diceGame.Game;
 import entity.ListOfPlayers;
 import entity.Player;
 import gui_main.GUI;
@@ -36,44 +35,44 @@ public class Spil {
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
 				if (whosTurn == 0) {
 					Game Turn = new Game();
-					GUI.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(1).getName(), "Roll");
+					GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(1).getName(), "Roll");
 					Turn.updateTurn(dice.roll(), player1);
 
 				} else {
 					Game Turn = new Game();
-					GUI.getUserButtonPressed("                                            Current turn: " + player2.getName(), "Roll");
+					GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + player2.getName(), "Roll");
 					Turn.updateTurn(dice.roll(), player2);
 				}
 			}
 			//Find out who has most money, and declare them the winner
 			if (player1.getBalance() > 3000) {
-				GUI.showMessage(player1.getName() + " won");
-				GUI.close();
+				GUI_Test.gui.showMessage(player1.getName() + " won");
+//				GUI_Test.gui.close();
 			} else {
-				GUI.showMessage(player2.getName() + " won");			
-				GUI.close();
+				GUI_Test.gui.showMessage(player2.getName() + " won");			
+//				GUI_Test.gui.close();
 			}
 			break;
 		case 3:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false) {
 				if (whosTurn == 0) {
 					Game Turn = new Game();
-					GUI.getUserButtonPressed("                                            Current turn: " + player1.getName(), "Roll");
+					GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + player1.getName(), "Roll");
 					Turn.updateTurn(dice.roll(), player1);
 
 				} else {
 					Game Turn = new Game();
-					GUI.getUserButtonPressed("                                            Current turn: " + player2.getName(), "Roll");
+					GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + player2.getName(), "Roll");
 					Turn.updateTurn(dice.roll(), player2);
 				}
 			}
 			//Find out who has most money, and declare them the winner
 			if (player1.getBalance() > 3000) {
-				GUI.showMessage(player1.getName() + " won");
-				GUI.close();
+				GUI_Test.gui.showMessage(player1.getName() + " won");
+//				GUI_Test.gui.close();
 			} else {
-				GUI.showMessage(player2.getName() + " won");			
-				GUI.close();
+				GUI_Test.gui.showMessage(player2.getName() + " won");			
+//				GUI_Test.gui.close();
 			}
 			break;
 
@@ -81,23 +80,23 @@ public class Spil {
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false && ListOfPlayers.getPlayers(4).isDead() == false) {
 				if (whosTurn == 0) {
 					Game Turn = new Game();
-					GUI.getUserButtonPressed("                                            Current turn: " + player1.getName(), "Roll");
+					GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + player1.getName(), "Roll");
 					Turn.updateTurn(dice.roll(), player1);
 
 				} else {
 					Game Turn = new Game();
-					GUI.getUserButtonPressed("                                            Current turn: " + player2.getName(), "Roll");
+					GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + player2.getName(), "Roll");
 					Turn.updateTurn(dice.roll(), player2);
 				}
 			}
 			
 			//Find out who has most money, and declare them the winner
 			if (player1.getBalance() > 3000) {
-				GUI.showMessage(player1.getName() + " won");
-				GUI.close();
+				GUI_Test.gui.showMessage(player1.getName() + " won");
+//				GUI_Test.gui.close();
 			} else {
-				GUI.showMessage(player2.getName() + " won");			
-				GUI.close();
+				GUI_Test.gui.showMessage(player2.getName() + " won");			
+//				GUI_Test.gui.close();
 			}
 			break;
 
@@ -208,13 +207,7 @@ public class Spil {
 			GUI.setCar(field, player.getName());
 			GUI.setBalance(player.getName(), player.getBalance());
 			GUI.setDice(dice.getdie1(), dice.getdie2());
-			//Print text to GUI
-			try {
-				printText(field);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
 		}
 
 }
