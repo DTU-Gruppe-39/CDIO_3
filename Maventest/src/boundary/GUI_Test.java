@@ -1,21 +1,16 @@
 package boundary;
-import gui_main.GUI;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 
-import gui_codebehind.GUI_BoardController;
+import desktop_codebehind.Car;
+import gui_fields.GUI_Car;
 import gui_fields.GUI_Chance;
-import gui_fields.GUI_Empty;
 import gui_fields.GUI_Field;
-import gui_fields.GUI_Jail;
 import gui_fields.GUI_Player;
-import gui_fields.GUI_Refuge;
 import gui_fields.GUI_Start;
 import gui_fields.GUI_Street;
-import gui_fields.GUI_Tax;
 import gui_main.GUI;
 public class GUI_Test {
 	private static String [] titles;
@@ -92,10 +87,18 @@ public class GUI_Test {
 		fields[23] = new GUI_Street(titles[23], "M5", titles[23], "M5", Color.BLUE, Color.WHITE);
 		GUI gui = new GUI(fields);
 
-
-		gui.addPlayer(new GUI_Player("JOHN", 1000));
-		gui.addPlayer(new GUI_Player("BRIAN", 1000));
-
+		GUI_Car one = new GUI_Car();
+			one.setPrimaryColor(Color.RED);
+			
+		GUI_Car two = new GUI_Car();
+			two.setPrimaryColor(Color.YELLOW);
+		
+		GUI_Car three = new GUI_Car();
+			three.setPrimaryColor(Color.cyan);
+		
+		GUI_Car four = new GUI_Car();
+			four.setPrimaryColor(Color.WHITE);
+			
 
 //		System.out.println(Arrays.toString(titles));
 		numberOfPlayers = gui.getUserInteger("                             Indtast antal spillere", 2, 4);
@@ -105,9 +108,14 @@ public class GUI_Test {
 		for (int i = 0; i < numberOfPlayers; i++ ) {
 			names[i] = gui.getUserString("Spiller " + (i + 1) + " indtast navn");
 		}
+		
+		GUI_Player hej = new GUI_Player(names[0]);
+		gui.addPlayer(hej);
+//		gui.addPlayer(new GUI_Player(names[1], 100, two));
+//		gui.addPlayer(new GUI_Player(names[2], 100, three));
+		fields[0].setCar(hej, true);
 //		System.out.println(Arrays.toString(names));
 	}
-
 
 // Læser titlerne på felterne fra titles arrayet
 
