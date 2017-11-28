@@ -36,7 +36,7 @@ public class Spil {
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
 				if (whosTurn == 0) {
 					Game Turn = new Game();
-					GUI_Test.gui.getUserRollButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(1).getName(), "Roll");
+					GUI.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(1).getName(), "Roll");
 					Turn.updateTurn(dice.roll(), player1);
 
 				} else {
