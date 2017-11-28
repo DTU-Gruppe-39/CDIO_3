@@ -6,6 +6,7 @@ public class Player {
 	private AccountBalance account;
 	private boolean isDead;
 	private boolean isWinner;
+	private int currentField = 0;
 
 	
 	public Player () {
@@ -15,6 +16,14 @@ public class Player {
 		isWinner = false;
 	}
 	
+	public int getCurrentField() {
+		return currentField;
+	}
+
+	public void setCurrentField(int currentField) {
+		this.currentField = currentField;
+	}
+
 	public TwoDice getDice() {
 		return dice;
 	}

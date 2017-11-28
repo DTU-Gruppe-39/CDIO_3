@@ -95,7 +95,7 @@ public class GUI_Test {
 
 		gui.addPlayer(new GUI_Player("JOHN", 1000));
 		gui.addPlayer(new GUI_Player("BRIAN", 1000));
-
+		
 
 //		System.out.println(Arrays.toString(titles));
 		numberOfPlayers = gui.getUserInteger("                             Indtast antal spillere", 2, 4);

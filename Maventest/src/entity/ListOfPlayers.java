@@ -6,7 +6,7 @@ import boundary.GUI_Test;
 
 public class ListOfPlayers {
 
-	private Player[] Players;
+	private static Player[] Players;
 
 	public ListOfPlayers(int amountOfPlayers ) {
 		Players= new Player[amountOfPlayers];
@@ -25,7 +25,7 @@ public class ListOfPlayers {
 		return Players;
 	}
 
-	public Player getPlayers(int index){
+	public static Player getPlayers(int index){
 		return Players[index];
 	}
 

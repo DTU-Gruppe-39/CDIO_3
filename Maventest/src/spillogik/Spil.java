@@ -1,12 +1,20 @@
 package spillogik;
 
-import java.util.Arrays;
+import boundary.GUI_Test;
+import diceGame.Game;
+import entity.ListOfPlayers;
+import entity.Player;
+import gui_main.GUI;
 
 public class Spil {
 	final static int MIN_POINTS = 0;
+	private static int whosTurn = 0;
 
 	static int FieldNumb = 24;
 	static int 	Attribute = 5;
+	/**
+	 * Field[][] har formen [FieldNumb][Attributes], hvor [Attributes] = [FieldNumb, rent, color, isOwned, owner]
+	 */
 	static int Fields[][] = new int [FieldNumb][Attribute];  //simple array to determine what field the player is on.
 	
 	public static int[][] getFields() {
@@ -17,6 +25,100 @@ public class Spil {
 		Fields = fields;
 	}
 
+	
+	public static void gameLogic() {
+		//Game logic
+				
+		switch (GUI_Test.getNumberOfPlayers()) {
+		case 2:
+			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
+				if (whosTurn == 0) {
+					Game Turn = new Game();
+					GUI.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(1).getName(), "Roll");
+					Turn.updateTurn(dice.roll(), player1);
+
+				} else {
+					Game Turn = new Game();
+					GUI.getUserButtonPressed("                                            Current turn: " + player2.getName(), "Roll");
+					Turn.updateTurn(dice.roll(), player2);
+				}
+			}
+			//Find out who has most money, and declare them the winner
+			if (player1.getBalance() > 3000) {
+				GUI.showMessage(player1.getName() + " won");
+				GUI.close();
+			} else {
+				GUI.showMessage(player2.getName() + " won");			
+				GUI.close();
+			}
+			break;
+		case 3:
+			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false) {
+				if (whosTurn == 0) {
+					Game Turn = new Game();
+					GUI.getUserButtonPressed("                                            Current turn: " + player1.getName(), "Roll");
+					Turn.updateTurn(dice.roll(), player1);
+
+				} else {
+					Game Turn = new Game();
+					GUI.getUserButtonPressed("                                            Current turn: " + player2.getName(), "Roll");
+					Turn.updateTurn(dice.roll(), player2);
+				}
+			}
+			//Find out who has most money, and declare them the winner
+			if (player1.getBalance() > 3000) {
+				GUI.showMessage(player1.getName() + " won");
+				GUI.close();
+			} else {
+				GUI.showMessage(player2.getName() + " won");			
+				GUI.close();
+			}
+			break;
+
+		case 4:
+			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false && ListOfPlayers.getPlayers(4).isDead() == false) {
+				if (whosTurn == 0) {
+					Game Turn = new Game();
+					GUI.getUserButtonPressed("                                            Current turn: " + player1.getName(), "Roll");
+					Turn.updateTurn(dice.roll(), player1);
+
+				} else {
+					Game Turn = new Game();
+					GUI.getUserButtonPressed("                                            Current turn: " + player2.getName(), "Roll");
+					Turn.updateTurn(dice.roll(), player2);
+				}
+			}
+			
+			//Find out who has most money, and declare them the winner
+			if (player1.getBalance() > 3000) {
+				GUI.showMessage(player1.getName() + " won");
+				GUI.close();
+			} else {
+				GUI.showMessage(player2.getName() + " won");			
+				GUI.close();
+			}
+			break;
+
+		default:
+			break;
+		}
+		
+	}
+	
+	
+	public void updateTurn (int field, Player player) {
+		updateBalance(field, player);
+		updateGUI(field, player);
+
+		if (whosTurn == GUI_Test.getNumberOfPlayers()) {
+			whosTurn = 0;
+		}
+		else {
+			whosTurn++;
+		}
+	}
+	
+	
 	public static void fillFields() {
 		int field[][];
 		field = new int [24][5];
