@@ -8,15 +8,15 @@ public class ListOfPlayers {
 
 	private Player[] Players;
 
-	public ListOfPlayers(int antal ) {
-		Players= new Player[antal];
-		for (int i = 1; i < antal; i++)
+	public ListOfPlayers(int amountOfPlayers ) {
+		Players= new Player[amountOfPlayers];
+		for (int i = 1; i < amountOfPlayers; i++)
 			Players[i]=new Player();
 	} 
 
-	public void addplayer(int antal){
+	public void addplayer(int amountOfPlayers){
 		String[] names = GUI_Test.getNames();
-		for (int i=1; i <= antal; i++){
+		for (int i=1; i <= amountOfPlayers; i++){
 			Players[i].setName(names[(i - 1)]);
 		}	
 	}	
@@ -41,18 +41,18 @@ public class ListOfPlayers {
 		index = ++index % Players.length;
 		return index;
 	}
-	public void AddFunds(int antal) {
-		switch (antal) {
+	public void AddFunds(int amountOfPlayers) {
+		switch (amountOfPlayers) {
 		case 2:
-			for(int i=1; i <= antal; i++) {
+			for(int i=1; i <= amountOfPlayers; i++) {
 				Players[i].setBalance(20);
 			} break;
 		case 3:
-			for(int i=1; i <= antal; i++) {
+			for(int i=1; i <= amountOfPlayers; i++) {
 				Players[i].setBalance(18);
 			} break;	
 		case 4:
-			for(int i=1; i <= antal; i++) {
+			for(int i=1; i <= amountOfPlayers; i++) {
 				Players[i].setBalance(16);
 			} break;	
 	}
