@@ -1,5 +1,7 @@
 package spillogik;
 
+import java.io.IOException;
+
 import boundary.GUI_Test;
 import diceGame.Game;
 import entity.ListOfPlayers;
@@ -34,7 +36,7 @@ public class Spil {
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
 				if (whosTurn == 0) {
 					Game Turn = new Game();
-					GUI.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(1).getName(), "Roll");
+					GUI_Test.gui.getUserRollButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(1).getName(), "Roll");
 					Turn.updateTurn(dice.roll(), player1);
 
 				} else {
@@ -106,6 +108,7 @@ public class Spil {
 	}
 	
 	
+	//Everything needed between each turn
 	public void updateTurn (int field, Player player) {
 		updateBalance(field, player);
 		updateGUI(field, player);
@@ -191,5 +194,27 @@ public class Spil {
 		setFields(field);
 //		System.out.println(Arrays.deepToString(Fields));
 	}
+	
+	//Update the balance depending on the field	
+	public void updateBalance (int field, Player name) {
+
+		//Check 2d array
+	}
+	
+	
+	//Updates the GUI
+		public void updateGUI (int field, Player player) {
+			GUI.removeAllCars(player.getName());
+			GUI.setCar(field, player.getName());
+			GUI.setBalance(player.getName(), player.getBalance());
+			GUI.setDice(dice.getdie1(), dice.getdie2());
+			//Print text to GUI
+			try {
+				printText(field);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
 }
