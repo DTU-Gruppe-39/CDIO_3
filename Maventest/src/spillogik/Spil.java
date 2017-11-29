@@ -132,7 +132,8 @@ public class Spil {
 		//If above 24, then modulus 24
 		nextField += diceSum;
 		if (nextField > 24) {
-			nextField = (currField + diceSum) % 24;
+			nextField = ((currField + diceSum) % 24) -1;
+			player.setNewBalance(2);
 		}
 		ListOfPlayers.getPlayers(whosTurn).setCurrentField(nextField);
 	}
