@@ -101,7 +101,7 @@ public class Spil {
 	
 	
 	//Everything needed between each turn
-	public void updateTurn (int field, Player player, TwoDice diceSum) {
+	public void updateTurn (int diceSum, Player player) {
 		movePlayer(player, diceSum);
 		updateBalance(field, player);
 //		updateGUI(field, player);
@@ -114,7 +114,7 @@ public class Spil {
 		}
 	}
 	
-	public static void movePlayer(Player player, TwoDice diceSum) {
+	public static void movePlayer(Player player, int diceSum) {
 		int nextField = 0;
 		int currField;
 		//Get current field of player
@@ -122,9 +122,9 @@ public class Spil {
 		
 		//Calculate next field with dice and current field
 		//If above 24, then modulus 24
-		nextField += diceSum.getdie1();
+		nextField += diceSum;
 		if (nextField > 24) {
-			nextField = (currField + diceSum.getdie1()) % 24;
+			nextField = (currField + diceSum) % 24;
 		}
 		ListOfPlayers.getPlayers(whosTurn).setCurrentField(nextField);
 	}
