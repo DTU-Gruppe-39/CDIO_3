@@ -92,7 +92,22 @@ public class Spil {
 		default:
 			break;
 		}
-		
+		int temp=0;
+		for(int i =1; i<=GUI_Test.getNumberOfPlayers();i++) {
+			if(ListOfPlayers.getPlayers(i).getBalance()==0){
+				ListOfPlayers.getPlayers(i).setDead(true);
+				for(int j =1; j<=GUI_Test.getNumberOfPlayers();j++) {
+					if(ListOfPlayers.getPlayers(j).getBalance()>temp)
+						temp+=ListOfPlayers.getPlayers(j).getBalance();
+				}
+			}
+		}
+		for(int i = 1; i<=GUI_Test.getNumberOfPlayers();i++) {
+			if(ListOfPlayers.getPlayers(i).getBalance()==temp) {
+				ListOfPlayers.getPlayers(i).setWinner(true);
+				System.out.println(""+ListOfPlayers.getPlayers(i).getName()+" har vundet");
+		   }	
+		}
 	}
 	
 	
