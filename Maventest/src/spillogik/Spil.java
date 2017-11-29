@@ -220,7 +220,6 @@ public class Spil {
 	}
 	
 	public boolean ownsBothFields() {
-		//Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][]
 		
 		if (ListOfPlayers.getPlayers(whosTurn).getCurrentField() % 3 == 1) {
 			int otherField = Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField() + 1][4];
@@ -238,6 +237,7 @@ public class Spil {
 	
 	
 	//Update the balance depending on the field	
+	//[Attributes] = [FieldNumb, rent, color, isOwned, owner, isOwnable]
 	public void handleField (int field, Player name) {
 		if (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][3] == 1) {
 			if (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4] == whosTurn) {
@@ -250,19 +250,22 @@ public class Spil {
 					ListOfPlayers.getPlayers(whosTurn).setNewBalance(-2 * (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
 					ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setNewBalance(2 * (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
 				} else {
-					//Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]
 					ListOfPlayers.getPlayers(whosTurn).setNewBalance(-(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
 					ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setNewBalance(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]);
 				}
-				//Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][];
 			}
-			// rent, color
-			//[Attributes] = [FieldNumb, rent, color, isOwned, owner]
+		
 		} else {
-			
+			 if (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][5] == 1) {
+				ListOfPlayers.getPlayers(whosTurn).setNewBalance(-(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
+				setOwner(ListOfPlayers.getPlayers(whosTurn));
+			}
 		}
+	}
 
-		//Check 2d array
+		public void setOwner(Player player) {
+			Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4] = whosTurn;
+			Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][3] = 1;
 	}
 	
 	
