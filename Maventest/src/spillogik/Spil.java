@@ -10,7 +10,7 @@ import gui_main.GUI;
 
 public class Spil {
 	final static int MIN_POINTS = 0;
-	private static int whosTurn = 0;
+	private static int whosTurn;
 
 	static int FieldNumb = 24;
 	static int 	Attribute = 5;
@@ -31,6 +31,9 @@ public class Spil {
 	public static void gameLogic() {
 		//Game logic
 		
+		//Randomize whosTurn
+		whosTurn = (int) Math.ceil(Math.random() * GUI_Test.getNumberOfPlayers());
+		
 		//Create dice
 		TwoDice dice = new TwoDice();
 		
@@ -38,31 +41,27 @@ public class Spil {
 		switch (GUI_Test.getNumberOfPlayers()) {
 		case 2:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
-				if (whosTurn == 0) {
-					Spil turn = new Spil();
-					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
+				Spil turn = new Spil();
+				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
-				} else {
-					Spil turn = new Spil();
-					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
+				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
+					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
 			}
 			//Find out who has most money, and declare them the winner
 			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
-			//won
+				//won
 			} else {
 				//won
 			}
 			break;
 		case 3:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false) {
-				if (whosTurn == 0) {
-					Spil turn = new Spil();
-					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
+				Spil turn = new Spil();
+				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
-				} else {
-					Spil turn = new Spil();
-					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
+				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
+					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
 			}
 			//Find out who has most money, and declare them the winner
@@ -75,16 +74,14 @@ public class Spil {
 
 		case 4:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false && ListOfPlayers.getPlayers(4).isDead() == false) {
-				if (whosTurn == 0) {
-					Spil turn = new Spil();
-					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
+				Spil turn = new Spil();
+				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
-				} else {
-					Spil turn = new Spil();
-					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
+				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
+					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
 			}
-			
+
 			//Find out who has most money, and declare them the winner
 			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
 				//won
@@ -96,20 +93,16 @@ public class Spil {
 		default:
 			break;
 		}
-		int temp=0;
-		for(int i =1; i<=GUI_Test.getNumberOfPlayers();i++) {
-			if(ListOfPlayers.getPlayers(i).getBalance()==0){
-				ListOfPlayers.getPlayers(i).setDead(true);
-				for(int j =1; j<=GUI_Test.getNumberOfPlayers();j++) {
-					if(ListOfPlayers.getPlayers(j).getBalance()>temp)
-						temp+=ListOfPlayers.getPlayers(j).getBalance();
-				}
-			}
+		int temp = 0;
+		for(int i = 1; i <= GUI_Test.getNumberOfPlayers(); i++) {
+			if(ListOfPlayers.getPlayers(i).getBalance() > temp)
+				temp += ListOfPlayers.getPlayers(i).getBalance();
 		}
-		for(int i = 1; i<=GUI_Test.getNumberOfPlayers();i++) {
-			if(ListOfPlayers.getPlayers(i).getBalance()==temp) {
+		
+		for(int i = 1; i <= GUI_Test.getNumberOfPlayers(); i++) {
+			if(ListOfPlayers.getPlayers(i).getBalance() == temp) {
 				ListOfPlayers.getPlayers(i).setWinner(true);
-				System.out.println(""+ListOfPlayers.getPlayers(i).getName()+" har vundet");
+				System.out.println("" + ListOfPlayers.getPlayers(i).getName() + " har vundet");
 		   }	
 		}
 	}
@@ -122,7 +115,7 @@ public class Spil {
 //		updateGUI(field, player);
 
 		if (whosTurn == GUI_Test.getNumberOfPlayers()) {
-			whosTurn = 0;
+			whosTurn = 1;
 		}
 		else {
 			whosTurn++;
