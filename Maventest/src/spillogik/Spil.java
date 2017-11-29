@@ -110,14 +110,10 @@ public class Spil {
 		}
 		int temp = 0;
 		for(int i = 1; i <= GUI_Test.getNumberOfPlayers(); i++) {
-			if(ListOfPlayers.getPlayers(i).getBalance() == 0){
-				ListOfPlayers.getPlayers(i).setDead(true);
-				for(int j = 1; j <= GUI_Test.getNumberOfPlayers(); j++) {
-					if(ListOfPlayers.getPlayers(j).getBalance() > temp)
-						temp += ListOfPlayers.getPlayers(j).getBalance();
-				}
-			}
+			if(ListOfPlayers.getPlayers(i).getBalance() > temp)
+				temp += ListOfPlayers.getPlayers(i).getBalance();
 		}
+		
 		for(int i = 1; i <= GUI_Test.getNumberOfPlayers(); i++) {
 			if(ListOfPlayers.getPlayers(i).getBalance() == temp) {
 				ListOfPlayers.getPlayers(i).setWinner(true);
