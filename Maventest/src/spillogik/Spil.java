@@ -103,7 +103,7 @@ public class Spil {
 	//Everything needed between each turn
 	public void updateTurn (int diceSum, Player player) {
 		movePlayer(player, diceSum);
-		updateBalance(field, player);
+		handleField(ListOfPlayers.getPlayers(whosTurn).getCurrentField(), player);
 //		updateGUI(field, player);
 
 		if (whosTurn == GUI_Test.getNumberOfPlayers()) {
@@ -203,7 +203,7 @@ public class Spil {
 	}
 	
 	//Update the balance depending on the field	
-	public void updateBalance (int field, Player name) {
+	public void handleField (int field, Player name) {
 
 		//Check 2d array
 	}
