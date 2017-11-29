@@ -10,7 +10,7 @@ import gui_main.GUI;
 
 public class Spil {
 	final static int MIN_POINTS = 0;
-	private static int whosTurn = 0;
+	private static int whosTurn;
 
 	static int FieldNumb = 24;
 	static int 	Attribute = 5;
@@ -31,6 +31,9 @@ public class Spil {
 	public static void gameLogic() {
 		//Game logic
 		
+		//Randomize whosTurn
+		whosTurn = (int) Math.ceil(Math.random() * GUI_Test.getNumberOfPlayers());
+		
 		//Create dice
 		TwoDice dice = new TwoDice();
 		
@@ -45,6 +48,9 @@ public class Spil {
 				} else {
 					Spil turn = new Spil();
 					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
+				}
+				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
+					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
 			}
 			//Find out who has most money, and declare them the winner
@@ -63,6 +69,9 @@ public class Spil {
 				} else {
 					Spil turn = new Spil();
 					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
+				}
+				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
+					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
 			}
 			//Find out who has most money, and declare them the winner
@@ -83,6 +92,9 @@ public class Spil {
 					Spil turn = new Spil();
 					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 				}
+				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
+					ListOfPlayers.getPlayers(whosTurn).setDead(true);
+				}
 			}
 			
 			//Find out who has most money, and declare them the winner
@@ -96,20 +108,20 @@ public class Spil {
 		default:
 			break;
 		}
-		int temp=0;
-		for(int i =1; i<=GUI_Test.getNumberOfPlayers();i++) {
-			if(ListOfPlayers.getPlayers(i).getBalance()==0){
+		int temp = 0;
+		for(int i = 1; i <= GUI_Test.getNumberOfPlayers(); i++) {
+			if(ListOfPlayers.getPlayers(i).getBalance() == 0){
 				ListOfPlayers.getPlayers(i).setDead(true);
-				for(int j =1; j<=GUI_Test.getNumberOfPlayers();j++) {
-					if(ListOfPlayers.getPlayers(j).getBalance()>temp)
-						temp+=ListOfPlayers.getPlayers(j).getBalance();
+				for(int j = 1; j <= GUI_Test.getNumberOfPlayers(); j++) {
+					if(ListOfPlayers.getPlayers(j).getBalance() > temp)
+						temp += ListOfPlayers.getPlayers(j).getBalance();
 				}
 			}
 		}
-		for(int i = 1; i<=GUI_Test.getNumberOfPlayers();i++) {
-			if(ListOfPlayers.getPlayers(i).getBalance()==temp) {
+		for(int i = 1; i <= GUI_Test.getNumberOfPlayers(); i++) {
+			if(ListOfPlayers.getPlayers(i).getBalance() == temp) {
 				ListOfPlayers.getPlayers(i).setWinner(true);
-				System.out.println(""+ListOfPlayers.getPlayers(i).getName()+" har vundet");
+				System.out.println("" + ListOfPlayers.getPlayers(i).getName() + " har vundet");
 		   }	
 		}
 	}
