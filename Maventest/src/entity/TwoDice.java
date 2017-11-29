@@ -12,7 +12,7 @@ public class TwoDice {
 	}
 	
 	
-	public int roll() {		//Rolls both dice to a value between 1 and 6.
+	public void roll() {		//Rolls both dice to a value between 1 and 6.
 		//die1
 		double d1=(float)Math.random();		// [0 ; 1[
 		double d2 = d1*faces;				// [0 ; 6[
@@ -22,7 +22,6 @@ public class TwoDice {
 		double d3=(float)Math.random();		// [0 ; 1[
 		double d4 = d3*faces;				// [0 ; 6[
 		die2 = (int)Math.ceil(d4);			// [1-6] integer
-		return getDiceTotal();
 
 	} 
 	public int getdie1() {	//Returns value of die 1.

@@ -30,21 +30,25 @@ public class Spil {
 	
 	public static void gameLogic() {
 		//Game logic
+		
+		//Create dice
+		TwoDice dice = new TwoDice();
+		
 				
 		switch (GUI_Test.getNumberOfPlayers()) {
 		case 2:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
 				if (whosTurn == 0) {
 					Spil turn = new Spil();
-					turn.updateTurn(dice.roll(), player1);
+					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
 				} else {
 					Spil turn = new Spil();
-					turn.updateTurn(dice.roll(), player2);
+					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 				}
 			}
 			//Find out who has most money, and declare them the winner
-			if (player1.getBalance() > 3000) {
+			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
 			//won
 			} else {
 				//won
@@ -54,15 +58,15 @@ public class Spil {
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false) {
 				if (whosTurn == 0) {
 					Spil turn = new Spil();
-					turn.updateTurn(dice.roll(), player1);
+					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
 				} else {
 					Spil turn = new Spil();
-					turn.updateTurn(dice.roll(), player2);
+					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 				}
 			}
 			//Find out who has most money, and declare them the winner
-			if (player1.getBalance() > 3000) {
+			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
 				//won
 			} else {
 				//won
@@ -73,16 +77,16 @@ public class Spil {
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false && ListOfPlayers.getPlayers(4).isDead() == false) {
 				if (whosTurn == 0) {
 					Spil turn = new Spil();
-					turn.updateTurn(dice.roll(), player1);
+					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
 				} else {
 					Spil turn = new Spil();
-					turn.updateTurn(dice.roll(), player2);
+					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 				}
 			}
 			
 			//Find out who has most money, and declare them the winner
-			if (player1.getBalance() > 3000) {
+			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
 				//won
 			} else {
 				//won
@@ -112,9 +116,9 @@ public class Spil {
 	
 	
 	//Everything needed between each turn
-	public void updateTurn (int field, Player player, TwoDice diceSum) {
+	public void updateTurn (int diceSum, Player player) {
 		movePlayer(player, diceSum);
-		updateBalance(field, player);
+		handleField(ListOfPlayers.getPlayers(whosTurn).getCurrentField(), player);
 //		updateGUI(field, player);
 
 		if (whosTurn == GUI_Test.getNumberOfPlayers()) {
@@ -125,7 +129,7 @@ public class Spil {
 		}
 	}
 	
-	public static void movePlayer(Player player, TwoDice diceSum) {
+	public static void movePlayer(Player player, int diceSum) {
 		int nextField = 0;
 		int currField;
 		//Get current field of player
@@ -133,9 +137,9 @@ public class Spil {
 		
 		//Calculate next field with dice and current field
 		//If above 24, then modulus 24
-		nextField += diceSum.getdie1();
+		nextField += diceSum;
 		if (nextField > 24) {
-			nextField = (currField + diceSum.getdie1()) % 24;
+			nextField = (currField + diceSum) % 24;
 		}
 		ListOfPlayers.getPlayers(whosTurn).setCurrentField(nextField);
 	}
@@ -214,7 +218,7 @@ public class Spil {
 	}
 	
 	//Update the balance depending on the field	
-	public void updateBalance (int field, Player name) {
+	public void handleField (int field, Player name) {
 
 		//Check 2d array
 	}
