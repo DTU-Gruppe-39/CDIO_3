@@ -93,6 +93,14 @@ public class Spil {
 		default:
 			break;
 		}
+			}
+	public void goToJail() {
+		if(ListOfPlayers.getPlayers(whosTurn).getCurrentField()==18) {
+			ListOfPlayers.getPlayers(whosTurn).setJailed(true);
+			ListOfPlayers.getPlayers(whosTurn).setCurrentField(6);
+		
+		}
+		
 		int temp = 0;
 		for(int i = 1; i <= GUI_Test.getNumberOfPlayers(); i++) {
 			if(ListOfPlayers.getPlayers(i).getBalance() > temp)
