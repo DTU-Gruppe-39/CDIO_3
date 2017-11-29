@@ -30,20 +30,17 @@ public class Spil {
 	
 	public static void gameLogic() {
 		//Game logic
-		
-		//Create dice
-		TwoDice dice = new TwoDice();
-		
+				
 		switch (GUI_Test.getNumberOfPlayers()) {
 		case 2:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
 				if (whosTurn == 0) {
 					Spil turn = new Spil();
-					turn.updateTurn(dice.roll(), player1);
+					turn.updateTurn(dice.roll(), ListOfPlayers.getPlayers(whosTurn));
 
 				} else {
 					Spil turn = new Spil();
-					turn.updateTurn(dice.roll(), player2);
+					turn.updateTurn(dice.roll(), ListOfPlayers.getPlayers(whosTurn));
 				}
 			}
 			//Find out who has most money, and declare them the winner
@@ -57,15 +54,15 @@ public class Spil {
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false) {
 				if (whosTurn == 0) {
 					Spil turn = new Spil();
-					turn.updateTurn(dice.roll(), player1);
+					turn.updateTurn(dice.roll(), ListOfPlayers.getPlayers(whosTurn));
 
 				} else {
 					Spil turn = new Spil();
-					turn.updateTurn(dice.roll(), player2);
+					turn.updateTurn(dice.roll(), ListOfPlayers.getPlayers(whosTurn));
 				}
 			}
 			//Find out who has most money, and declare them the winner
-			if (player1.getBalance() > 3000) {
+			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
 				//won
 			} else {
 				//won
@@ -76,11 +73,11 @@ public class Spil {
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false && ListOfPlayers.getPlayers(4).isDead() == false) {
 				if (whosTurn == 0) {
 					Spil turn = new Spil();
-					turn.updateTurn(dice.roll(), player1);
+					turn.updateTurn(dice.roll(), ListOfPlayers.getPlayers(whosTurn));
 
 				} else {
 					Spil turn = new Spil();
-					turn.updateTurn(dice.roll(), player2);
+					turn.updateTurn(dice.roll(), ListOfPlayers.getPlayers(whosTurn));
 				}
 			}
 			
