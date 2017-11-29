@@ -30,6 +30,10 @@ public class Spil {
 	
 	public static void gameLogic() {
 		//Game logic
+		
+		//Create dice
+		TwoDice dice = new TwoDice();
+		
 				
 		switch (GUI_Test.getNumberOfPlayers()) {
 		case 2:
@@ -82,7 +86,7 @@ public class Spil {
 			}
 			
 			//Find out who has most money, and declare them the winner
-			if (player1.getBalance() > 3000) {
+			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
 				//won
 			} else {
 				//won
