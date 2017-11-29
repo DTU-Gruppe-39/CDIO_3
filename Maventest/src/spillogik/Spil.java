@@ -217,8 +217,48 @@ public class Spil {
 //		System.out.println(Arrays.deepToString(Fields));
 	}
 	
+	public boolean ownsBothFields() {
+		//Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][]
+		
+		if (ListOfPlayers.getPlayers(whosTurn).getCurrentField() % 3 == 1) {
+			int otherField = Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField() + 1][4];
+			return (otherField == Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]);
+		}
+		
+		else if (ListOfPlayers.getPlayers(whosTurn).getCurrentField() % 3 == 2) {
+			int otherField = Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField() - 1][4];
+			return (otherField == Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]);
+		}
+		else {
+			return false;
+		}
+	}
+	
+	
 	//Update the balance depending on the field	
 	public void handleField (int field, Player name) {
+		if (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][3] == 1) {
+			if (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4] == whosTurn) {
+				//Lands on his own field
+			}
+			else {
+				if (ownsBothFields()) {
+					//Multiply rent by 2
+					
+					ListOfPlayers.getPlayers(whosTurn).setNewBalance(-2 * (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
+					ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setNewBalance(2 * (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
+				} else {
+					//Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]
+					ListOfPlayers.getPlayers(whosTurn).setNewBalance(-(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
+					ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setNewBalance(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]);
+				}
+				//Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][];
+			}
+			// rent, color
+			//[Attributes] = [FieldNumb, rent, color, isOwned, owner]
+		} else {
+			
+		}
 
 		//Check 2d array
 	}
