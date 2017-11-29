@@ -13,9 +13,9 @@ public class Spil {
 	private static int whosTurn;
 
 	static int FieldNumb = 24;
-	static int 	Attribute = 5;
+	static int 	Attribute = 6;
 	/**
-	 * Field[][] har formen [FieldNumb][Attributes], hvor [Attributes] = [FieldNumb, rent, color, isOwned, owner]
+	 * Field[][] har formen [FieldNumb][Attributes], hvor [Attributes] = [FieldNumb, rent, color, isOwned, owner, isOwnable]
 	 */
 	static int Fields[][] = new int [FieldNumb][Attribute];  //simple array to determine what field the player is on.
 	
@@ -139,7 +139,7 @@ public class Spil {
 	
 	public static void fillFields() {
 		int field[][];
-		field = new int [24][5];
+		field = new int [24][6];
 		for (int i = 0; i < 24; i++) {
 			field[i][0] = i; 
 //			for (int j = 0; j < 5; j++) {
@@ -152,6 +152,7 @@ public class Spil {
 			case 2:
 				field[i][1] = 1;
 				field[i][2] = 1;
+				field[i][5] = 1;
 				break;
 			case 3:
 				break;
@@ -159,6 +160,7 @@ public class Spil {
 			case 5:
 				field[i][1] = 1;
 				field[i][2] = 2;
+				field[i][5] = 1;
 				break;
 			case 6:
 				break;
@@ -166,6 +168,7 @@ public class Spil {
 			case 8:
 				field[i][1] = 2;
 				field[i][2] = 3;
+				field[i][5] = 1;
 				break;
 			case 9:
 				break;
@@ -173,6 +176,7 @@ public class Spil {
 			case 11:
 				field[i][1] = 2;
 				field[i][2] = 4;
+				field[i][5] = 1;
 				break;
 			case 12:
 				break;
@@ -180,6 +184,7 @@ public class Spil {
 			case 14:
 				field[i][1] = 3;
 				field[i][2] = 5;
+				field[i][5] = 1;
 				break;
 			case 15:
 				break;
@@ -187,6 +192,7 @@ public class Spil {
 			case 17:
 				field[i][1] = 3;
 				field[i][2] = 6;
+				field[i][5] = 1;
 				break;
 			case 18:
 				break;
@@ -194,6 +200,7 @@ public class Spil {
 			case 20:
 				field[i][1] = 4;
 				field[i][2] = 7;
+				field[i][5] = 1;
 				break;
 			case 21:
 				break;
@@ -201,6 +208,7 @@ public class Spil {
 			case 23:
 				field[i][1] = 5;
 				field[i][2] = 8;
+				field[i][5] = 1;
 				break;
 			default:
 				break;
