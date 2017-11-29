@@ -5,6 +5,7 @@ import java.io.IOException;
 import boundary.GUI_Test;
 import entity.ListOfPlayers;
 import entity.Player;
+import entity.TwoDice;
 import gui_main.GUI;
 
 public class Spil {
@@ -34,12 +35,12 @@ public class Spil {
 		case 2:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
 				if (whosTurn == 0) {
-					Game Turn = new Game();
-					Turn.updateTurn(dice.roll(), player1);
+					Spil turn = new Spil();
+					turn.updateTurn(dice.roll(), player1);
 
 				} else {
-					Game Turn = new Game();
-					Turn.updateTurn(dice.roll(), player2);
+					Spil turn = new Spil();
+					turn.updateTurn(dice.roll(), player2);
 				}
 			}
 			//Find out who has most money, and declare them the winner
@@ -52,12 +53,12 @@ public class Spil {
 		case 3:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false) {
 				if (whosTurn == 0) {
-					Game Turn = new Game();
-					Turn.updateTurn(dice.roll(), player1);
+					Spil turn = new Spil();
+					turn.updateTurn(dice.roll(), player1);
 
 				} else {
-					Game Turn = new Game();
-					Turn.updateTurn(dice.roll(), player2);
+					Spil turn = new Spil();
+					turn.updateTurn(dice.roll(), player2);
 				}
 			}
 			//Find out who has most money, and declare them the winner
@@ -71,12 +72,12 @@ public class Spil {
 		case 4:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false && ListOfPlayers.getPlayers(4).isDead() == false) {
 				if (whosTurn == 0) {
-					Game Turn = new Game();
-					Turn.updateTurn(dice.roll(), player1);
+					Spil turn = new Spil();
+					turn.updateTurn(dice.roll(), player1);
 
 				} else {
-					Game Turn = new Game();
-					Turn.updateTurn(dice.roll(), player2);
+					Spil turn = new Spil();
+					turn.updateTurn(dice.roll(), player2);
 				}
 			}
 			
@@ -96,7 +97,8 @@ public class Spil {
 	
 	
 	//Everything needed between each turn
-	public void updateTurn (int field, Player player) {
+	public void updateTurn (int field, Player player, TwoDice diceSum) {
+		movePlayer(player, diceSum);
 		updateBalance(field, player);
 //		updateGUI(field, player);
 
@@ -108,6 +110,20 @@ public class Spil {
 		}
 	}
 	
+	public static void movePlayer(Player player, TwoDice diceSum) {
+		int nextField = 0;
+		int currField;
+		//Get current field of player
+		currField = ListOfPlayers.getPlayers(whosTurn).getCurrentField();
+		
+		//Calculate next field with dice and current field
+		//If above 24, then modulus 24
+		nextField += diceSum.getdie1();
+		if (nextField > 24) {
+			nextField = (currField + diceSum.getdie1()) % 24;
+		}
+		ListOfPlayers.getPlayers(whosTurn).setCurrentField(nextField);
+	}
 	
 	public static void fillFields() {
 		int field[][];
