@@ -41,35 +41,25 @@ public class Spil {
 		switch (GUI_Test.getNumberOfPlayers()) {
 		case 2:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
-				if (whosTurn == 0) {
-					Spil turn = new Spil();
-					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
+				Spil turn = new Spil();
+				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
-				} else {
-					Spil turn = new Spil();
-					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
-				}
 				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
 					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
 			}
 			//Find out who has most money, and declare them the winner
 			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
-			//won
+				//won
 			} else {
 				//won
 			}
 			break;
 		case 3:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false) {
-				if (whosTurn == 0) {
-					Spil turn = new Spil();
-					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
+				Spil turn = new Spil();
+				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
-				} else {
-					Spil turn = new Spil();
-					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
-				}
 				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
 					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
@@ -84,19 +74,14 @@ public class Spil {
 
 		case 4:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false && ListOfPlayers.getPlayers(4).isDead() == false) {
-				if (whosTurn == 0) {
-					Spil turn = new Spil();
-					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
+				Spil turn = new Spil();
+				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
-				} else {
-					Spil turn = new Spil();
-					turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
-				}
 				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
 					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
 			}
-			
+
 			//Find out who has most money, and declare them the winner
 			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
 				//won
@@ -130,7 +115,7 @@ public class Spil {
 //		updateGUI(field, player);
 
 		if (whosTurn == GUI_Test.getNumberOfPlayers()) {
-			whosTurn = 0;
+			whosTurn = 1;
 		}
 		else {
 			whosTurn++;
