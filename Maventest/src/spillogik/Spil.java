@@ -30,7 +30,10 @@ public class Spil {
 	
 	public static void gameLogic() {
 		//Game logic
-				
+		
+		//Create dice
+		TwoDice dice = new TwoDice();
+		
 		switch (GUI_Test.getNumberOfPlayers()) {
 		case 2:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
