@@ -1,4 +1,4 @@
-package Test;
+package test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import entity.ListOfPlayers;
-import spillogik.Spil;
+import gamelogic.Game;
 
 public class JunitCoverageTestGame {
 
@@ -22,10 +22,10 @@ public class JunitCoverageTestGame {
 	@Test
 	public void test() {
 		
-				Spil.fillFields();
-				ListOfPlayers list = new ListOfPlayers((Spil.getNumberofplayers() + 1));
-				list.addplayer(Spil.getNumberofplayers());
-				Spil.gameLogic();				
+				Game.fillFields();
+				ListOfPlayers list = new ListOfPlayers((Game.getNumberofplayers() + 1));
+				list.addplayer(Game.getNumberofplayers());
+				Game.gameLogic();				
 				
 				boolean expected = true;
 				boolean actual =((ListOfPlayers.getPlayers(1).isDead() == true || ListOfPlayers.getPlayers(2).isDead() == true || ListOfPlayers.getPlayers(3).isDead() == true || ListOfPlayers.getPlayers(4).isDead() == true) && (ListOfPlayers.getPlayers(1).isWinner() == true || ListOfPlayers.getPlayers(2).isWinner() == true || ListOfPlayers.getPlayers(3).isWinner() == true || ListOfPlayers.getPlayers(4).isWinner() == true ));
