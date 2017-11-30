@@ -19,9 +19,9 @@ public class TwoDice {
 		die1 = (int)Math.ceil(d2);			// [1-6] integer
 
 		//die2
-		double d3=(float)Math.random();		// [0 ; 1[
-		double d4 = d3*faces;				// [0 ; 6[
-		die2 = (int)Math.ceil(d4);			// [1-6] integer
+//		double d3=(float)Math.random();		// [0 ; 1[
+//		double d4 = d3*faces;				// [0 ; 6[
+//		die2 = (int)Math.ceil(d4);			// [1-6] integer
 
 	} 
 	public int getdie1() {	//Returns value of die 1.
