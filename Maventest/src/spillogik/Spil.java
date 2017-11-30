@@ -28,7 +28,7 @@ public class Spil {
 	}
 
 
-	public void gameLogic() {
+	public static void gameLogic() {
 		//Game logic
 
 		//Randomize whosTurn
@@ -96,6 +96,7 @@ public class Spil {
 		if(ListOfPlayers.getPlayers(whosTurn).getCurrentField()==18) {
 			ListOfPlayers.getPlayers(whosTurn).setJailed(true);
 			ListOfPlayers.getPlayers(whosTurn).setCurrentField(6);
+			ListOfPlayers.getPlayers(whosTurn).setNewBalance(-1);
 
 		}
 	}
@@ -124,9 +125,9 @@ public class Spil {
 
 		//Calculate next field with dice and current field
 		//If above 24, then modulus 24
-		nextField += diceSum;
-		if (nextField > 24) {
-			nextField = ((currField + diceSum) % 24) -1;
+		nextField += currField + diceSum;
+		if (nextField > 23) {
+			nextField = (currField + diceSum) % 24;
 			player.setNewBalance(2);
 		}
 		ListOfPlayers.getPlayers(whosTurn).setCurrentField(nextField);
