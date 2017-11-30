@@ -1,8 +1,7 @@
 package entity;
 
-
 public class AccountBalance {
-	public int balance = 0;
+	private int balance = 0;
 
 	public AccountBalance(int balance) {
 		this.balance = balance;
