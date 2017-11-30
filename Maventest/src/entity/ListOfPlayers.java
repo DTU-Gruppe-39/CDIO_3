@@ -3,7 +3,6 @@ package entity;
 import java.util.Arrays;
 
 import boundary.GUI_Test;
-import gui_fields.GUI_Player;
 
 public class ListOfPlayers {
 
@@ -22,12 +21,6 @@ public class ListOfPlayers {
 		}	
 	}
 	
-	public void addGuiPlayer(GUI_Player gui_player, int amountOfPlayers) {
-		for (int i=1; i <= amountOfPlayers; i++){
-			Players[i].setGui_player(gui_player);
-		}
-	}
-
 	public Player[] getPlayers(){
 		return Players;
 	}

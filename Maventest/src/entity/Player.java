@@ -1,7 +1,5 @@
 package entity;
 
-import gui_fields.GUI_Player;
-
 public class Player {
 	private String name;
 	private TwoDice dice;
@@ -10,7 +8,6 @@ public class Player {
 	private boolean isWinner;
 	private boolean isJailed;
 	private int currentField = 0;
-	private GUI_Player gui_player;
 
 	
 	public Player () {
@@ -20,14 +17,6 @@ public class Player {
 		isDead = false;
 		isWinner = false;
 		isJailed = false;
-	}
-	
-	public GUI_Player getGui_player() {
-		return gui_player;
-	}
-
-	public void setGui_player(GUI_Player gui_player) {
-		this.gui_player = gui_player;
 	}
 
 	public int getCurrentField() {

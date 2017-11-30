@@ -3,7 +3,7 @@
 public class TwoDice {
 
 	private static int die1;	//value of 1st die.
-	private int die2;	//value of 2nd die.
+//	private int die2;	//value of 2nd die.
 	private static int faces = 6;
 
 	public TwoDice() {
@@ -27,10 +27,10 @@ public class TwoDice {
 	public int getdie1() {	//Returns value of die 1.
 		return die1;
 	}
-	public int getdie2() {	//Returns value of die 2.
-		return die2;
-	}
-	public int getDiceTotal() {	//Returns the values of the two dice added together.
-		return die1 + die2;
-	}
+//	public int getdie2() {	//Returns value of die 2.
+//		return die2;
+//	}
+//	public int getDiceTotal() {	//Returns the values of the two dice added together.
+//		return die1 + die2;
+//	}
 }
