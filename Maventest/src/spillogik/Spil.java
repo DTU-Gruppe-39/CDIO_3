@@ -101,6 +101,8 @@ public class Spil {
 			ListOfPlayers.getPlayers(whosTurn).setCurrentField(6);
 			ListOfPlayers.getPlayers(whosTurn).setNewBalance(-1);
 			GUI_Test.getFields(18).removeAllCars();
+			//Move player on GUI to prison
+			GUI_Test.getFields(6).setCar(GUI_Test.getGuiPlayers(whosTurn), true);
 
 		}
 	}
@@ -271,7 +273,7 @@ public class Spil {
 			}
 		}
 		//Update whosTurn's players balance on GUI
-		GUI_Test.getGuiPlayers(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setBalance(ListOfPlayers.getPlayers(whosTurn).getBalance());
+		GUI_Test.getGuiPlayers(whosTurn).setBalance(ListOfPlayers.getPlayers(whosTurn).getBalance());
 	}
 
 	public void setOwner(Player player) {
