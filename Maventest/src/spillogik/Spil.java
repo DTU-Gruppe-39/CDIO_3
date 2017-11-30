@@ -2,7 +2,7 @@ package spillogik;
 
 import java.io.IOException;
 
-import boundary.GUI_Test;
+
 import entity.ListOfPlayers;
 import entity.Player;
 import entity.TwoDice;
@@ -11,6 +11,15 @@ import gui_main.GUI;
 public class Spil {
 	final static int MIN_POINTS = 0;
 	private static int whosTurn;
+	private static int numberofplayers=4;
+
+	public static int getNumberofplayers() {
+		return numberofplayers;
+	}
+
+	public void setNumberofplayers(int numberofplayers) {
+		this.numberofplayers = numberofplayers;
+	}
 
 	static int FieldNumb = 24;
 	static int 	Attribute = 6;
@@ -32,13 +41,13 @@ public class Spil {
 		//Game logic
 
 		//Randomize whosTurn
-		whosTurn = (int) Math.ceil(Math.random() * GUI_Test.getNumberOfPlayers());
+		whosTurn = (int) Math.ceil(Math.random() * getNumberofplayers());
 
 		//Create dice
 		TwoDice dice = new TwoDice();
-		ListOfPlayers.addFunds(GUI_Test.getNumberOfPlayers());
+		ListOfPlayers.addFunds(getNumberofplayers());
 
-		switch (GUI_Test.getNumberOfPlayers()) {
+		switch (getNumberofplayers()) {
 		case 2:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
 				Spil turn = new Spil();
@@ -78,12 +87,12 @@ public class Spil {
 			break;
 		}
 		int temp = 0;
-		for(int i = 1; i <= GUI_Test.getNumberOfPlayers(); i++) {
+		for(int i = 1; i <= getNumberofplayers(); i++) {
 			if(ListOfPlayers.getPlayers(i).getBalance() > temp)
-				temp += ListOfPlayers.getPlayers(i).getBalance();
+				temp = ListOfPlayers.getPlayers(i).getBalance();
 		}
 
-		for(int i = 1; i <= GUI_Test.getNumberOfPlayers(); i++) {
+		for(int i = 1; i <= getNumberofplayers(); i++) {
 			if(ListOfPlayers.getPlayers(i).getBalance() == temp) {
 				ListOfPlayers.getPlayers(i).setWinner(true);
 				System.out.println("" + ListOfPlayers.getPlayers(i).getName() + " har vundet");
@@ -109,7 +118,7 @@ public class Spil {
 		goToJail();
 		//		updateGUI(field, player);
 
-		if (whosTurn == GUI_Test.getNumberOfPlayers()) {
+		if (whosTurn == getNumberofplayers()) {
 			whosTurn = 1;
 		}
 		else {
