@@ -6,14 +6,17 @@ public class Player {
 	private AccountBalance account;
 	private boolean isDead;
 	private boolean isWinner;
+	private boolean isJailed;
 	private int currentField = 0;
 
 	
 	public Player () {
 		TwoDice dice = new TwoDice();
+		this.account = new AccountBalance(0);
 		this.dice = dice;
 		isDead = false;
 		isWinner = false;
+		isJailed = false;
 	}
 	
 	public int getCurrentField() {
@@ -26,10 +29,6 @@ public class Player {
 
 	public TwoDice getDice() {
 		return dice;
-	}
-
-	public void setDice(TwoDice dice) {
-		this.dice = dice;
 	}
 
 	public int getBalance() {
@@ -52,13 +51,20 @@ public class Player {
 		this.name = name;
 	}
 
-	
 	public boolean isDead() {
 		return isDead;
 	}
-
+	
 	public void setDead(boolean isDead) {
 		this.isDead = isDead;
+	}
+	
+	public boolean isJailed() {
+		return isJailed;
+	}
+	
+	public void setJailed(boolean isJailed) {
+		this.isJailed = isJailed;
 	}
 
 	public boolean isWinner() {

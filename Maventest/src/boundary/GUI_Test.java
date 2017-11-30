@@ -100,7 +100,7 @@ public class GUI_Test {
 			
 
 //		System.out.println(Arrays.toString(titles));
-		numberOfPlayers = gui.getUserInteger("                             Indtast antal spillere", 2, 4);
+		numberOfPlayers = gui.getUserInteger("Indtast antal spillere", 2, 4);
 //		System.out.println(numberOfPlayers);
 		
 		names = new String [numberOfPlayers];
