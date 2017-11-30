@@ -31,10 +31,6 @@ public class Player {
 		return dice;
 	}
 
-	public void setDice(TwoDice dice) {
-		this.dice = dice;
-	}
-
 	public int getBalance() {
 		return this.account.balance;
 	}
@@ -55,7 +51,6 @@ public class Player {
 		this.name = name;
 	}
 
-	
 	public boolean isDead() {
 		return isDead;
 	}
@@ -71,7 +66,6 @@ public class Player {
 	public void setJailed(boolean isJailed) {
 		this.isJailed = isJailed;
 	}
-
 
 	public boolean isWinner() {
 		return isWinner;
