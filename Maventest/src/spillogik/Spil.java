@@ -83,7 +83,7 @@ public class Spil {
 		int temp = 0;
 		for(int i = 1; i <= GUI_Test.getNumberOfPlayers(); i++) {
 			if(ListOfPlayers.getPlayers(i).getBalance() > temp)
-				temp += ListOfPlayers.getPlayers(i).getBalance();
+				temp = ListOfPlayers.getPlayers(i).getBalance();
 		}
 
 		for(int i = 1; i <= GUI_Test.getNumberOfPlayers(); i++) {
