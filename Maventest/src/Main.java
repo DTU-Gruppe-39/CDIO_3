@@ -10,5 +10,6 @@ public class Main {
 		Spil.fillFields();
 		ListOfPlayers list = new ListOfPlayers((GUI_Test.getNumberOfPlayers() + 1)); //Players index in array needs to start at 1, because 0 = to no owner on a field
 		list.addplayer(GUI_Test.getNumberOfPlayers());
+		Spil.gameLogic();
 	}
 }

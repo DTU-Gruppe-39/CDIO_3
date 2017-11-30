@@ -12,6 +12,7 @@ public class Player {
 	
 	public Player () {
 		TwoDice dice = new TwoDice();
+		this.account = new AccountBalance(0);
 		this.dice = dice;
 		isDead = false;
 		isWinner = false;

@@ -28,7 +28,7 @@ public class Spil {
 	}
 
 
-	public static void gameLogic() {
+	public void gameLogic() {
 		//Game logic
 
 		//Randomize whosTurn
@@ -36,57 +36,41 @@ public class Spil {
 
 		//Create dice
 		TwoDice dice = new TwoDice();
-
+		ListOfPlayers.addFunds(GUI_Test.getNumberOfPlayers());
 
 		switch (GUI_Test.getNumberOfPlayers()) {
 		case 2:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
 				Spil turn = new Spil();
+				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
 				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
 					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
-			}
-			//Find out who has most money, and declare them the winner
-			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
-				//won
-			} else {
-				//won
 			}
 			break;
 		case 3:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false) {
 				Spil turn = new Spil();
+				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
 				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
 					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
-			}
-			//Find out who has most money, and declare them the winner
-			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
-				//won
-			} else {
-				//won
 			}
 			break;
 
 		case 4:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false && ListOfPlayers.getPlayers(4).isDead() == false) {
 				Spil turn = new Spil();
+				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
 				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
 					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
-			}
-
-			//Find out who has most money, and declare them the winner
-			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
-				//won
-			} else {
-				//won
 			}
 			break;
 
