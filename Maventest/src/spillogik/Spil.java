@@ -110,7 +110,7 @@ public class Spil {
 		movePlayer(player, diceSum);
 		handleField(ListOfPlayers.getPlayers(whosTurn).getCurrentField(), player);
 		goToJail();
-		//		updateGUI(field, player);
+		updateGUI(field, player, diceSum);
 
 		if (whosTurn == GUI_Test.getNumberOfPlayers()) {
 			whosTurn = 1;
@@ -121,6 +121,7 @@ public class Spil {
 	}
 
 	public static void movePlayer(Player player, int diceSum) {
+		GUI_Test.gui.setDie(diceSum);
 		int nextField = 0;
 		int currField;
 		//Get current field of player
@@ -134,6 +135,10 @@ public class Spil {
 			player.setNewBalance(2);
 		}
 		ListOfPlayers.getPlayers(whosTurn).setCurrentField(nextField);
+		
+		//Move player on GUI
+		GUI_Test.gui.removeAllCars(player.getName());
+		GUI_Test.gui.setCar(nextField, player.getName());
 	}
 
 	public static void fillFields() {
@@ -237,6 +242,7 @@ public class Spil {
 	//[Attributes] = [FieldNumb, rent, color, isOwned, owner, isOwnable]
 	public void handleField (int field, Player name) {
 		if (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][3] == 1) {
+			//Field is owned
 			if (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4] == whosTurn) {
 				//Lands on his own field
 			}
@@ -246,18 +252,27 @@ public class Spil {
 
 					ListOfPlayers.getPlayers(whosTurn).setNewBalance(-2 * (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
 					ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setNewBalance(2 * (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
+					
+					//Update recievers balance on GUI
+					GUI_Test.gui.setBalance(ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getName(), ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getBalance());
 				} else {
+					//Pay normal rent
 					ListOfPlayers.getPlayers(whosTurn).setNewBalance(-(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
 					ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setNewBalance(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]);
+					
+					//Update recievers balance on GUI
+					GUI_Test.gui.setBalance(ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getName(), ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getBalance());
 				}
 			}
 
 		} else {
+			//Buy field if it is ownable
 			if (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][5] == 1) {
 				ListOfPlayers.getPlayers(whosTurn).setNewBalance(-(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
 				setOwner(ListOfPlayers.getPlayers(whosTurn));
 			}
 		}
+		GUI_Test.gui.setBalance(ListOfPlayers.getPlayers(whosTurn).getName(), ListOfPlayers.getPlayers(whosTurn).getBalance());
 	}
 
 	public void setOwner(Player player) {
@@ -267,18 +282,19 @@ public class Spil {
 
 
 	//Updates the GUI
-	//		public void updateGUI (int field, Player player) {
-	//			GUI.removeAllCars(player.getName());
-	//			GUI.setCar(field, player.getName());
-	//			GUI.setBalance(player.getName(), player.getBalance());
-	//			GUI.setDice(dice.getdie1(), dice.getdie2());
-	//			//Print text to GUI
-	//			try {
-	//				printText(field);
-	//			} catch (IOException e) {
-	//				// TODO Auto-generated catch block
-	//				e.printStackTrace();
-	//			}
-	//		}
+			public void updateGUI (int field, Player player, int dice) {
+//				GUI_Test.gui.removeAllCars(player.getName());
+//				GUI_Test.gui.setCar(field, player.getName());
+//				GUI_Test.gui.setBalance(player.getName(), player.getBalance());
+//				GUI_Test.gui.setDie(dice);
+				
+				//Print text to GUI
+//				try {
+//					printText(field);
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+			}
 
 }
