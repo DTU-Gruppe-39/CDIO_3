@@ -91,7 +91,7 @@ public class GUI_Test {
 		fields[22] = new GUI_Street(titles[22], "M5", titles[22], "M5", Color.BLUE, Color.WHITE);
 
 		fields[23] = new GUI_Street(titles[23], "M5", titles[23], "M5", Color.BLUE, Color.WHITE);
-		gui = new GUI(fields);			
+		gui = new GUI(fields, Color.LIGHT_GRAY);			
 
 //		System.out.println(Arrays.toString(titles));
 		numberOfPlayers = gui.getUserInteger("Indtast antal spillere", 2, 4);
