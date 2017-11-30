@@ -7,7 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import boundary.GUI_Test;
+
 
 public class Whosturn_RandomizerTest {
 int whosTurn = 0;
