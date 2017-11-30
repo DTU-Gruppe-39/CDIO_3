@@ -27,10 +27,10 @@ public class TwoDice {
 	public int getdie1() {	//Returns value of die 1.
 		return die1;
 	}
-	public int getdie2() {	//Returns value of die 2.
-		return die2;
-	}
-	public int getDiceTotal() {	//Returns the values of the two dice added together.
-		return die1 + die2;
-	}
+//	public int getdie2() {	//Returns value of die 2.
+//		return die2;
+//	}
+//	public int getDiceTotal() {	//Returns the values of the two dice added together.
+//		return die1 + die2;
+//	}
 }
