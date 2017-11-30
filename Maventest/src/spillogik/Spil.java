@@ -90,6 +90,7 @@ public class Spil {
 			if(ListOfPlayers.getPlayers(i).getBalance() == temp) {
 				ListOfPlayers.getPlayers(i).setWinner(true);
 				System.out.println("" + ListOfPlayers.getPlayers(i).getName() + " har vundet");
+				GUI_Test.gui.showMessage("" + ListOfPlayers.getPlayers(i).getName() + " har vundet");
 			}	
 		}
 	}
@@ -279,6 +280,7 @@ public class Spil {
 	public void setOwner(Player player) {
 		Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4] = whosTurn;
 		Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][3] = 1;
+//		GUI_Test.getStreet(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setOwnableLabel(ListOfPlayers.getPlayers(whosTurn).getName());
 	}
 
 

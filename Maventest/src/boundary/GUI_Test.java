@@ -18,8 +18,14 @@ public class GUI_Test {
 	public static GUI gui;
 	private static GUI_Field[] fields;
 	private static GUI_Player[] guiPlayers;
+	private static GUI_Street[] street;
 	
 	
+	
+	public static GUI_Street getStreet(int index) {
+		return street[index];
+	}
+
 	public static GUI_Field getFields(int index) {
 		return fields[index];
 	}
@@ -34,9 +40,11 @@ public class GUI_Test {
 	
 	
 	public static void GUILauncher() throws IOException {
+		long t0 = System.currentTimeMillis();
 		readText();
 
 		 fields = new GUI_Field[24];
+		 street = new GUI_Street[24];
 
 		//	Opretter alle felterne
 
@@ -47,20 +55,27 @@ public class GUI_Test {
 		fields[0].setSubText("");
 
 		fields[1] = new GUI_Street(titles[1], "M1" , titles[1], "M1", Color.GRAY, Color.white);
+//		street[1] = new GUI_Street(titles[1], "M1" , titles[1], "M1", Color.GRAY, Color.white);
 
 		fields[2] = new GUI_Street(titles[2], "M1", titles[2], "M1", Color.GRAY, Color.WHITE);
+//		street[2] = new GUI_Street(titles[2], "M1", titles[2], "M1", Color.GRAY, Color.WHITE);
 		
 		fields[3] = new GUI_Chance(titles[3], "", titles[3], Color.white, Color.BLACK);
 
 		fields[4] = new GUI_Street(titles[4], "M1", titles[4], "M1", Color.cyan, Color.BLACK);
+//		street[4] = new GUI_Street(titles[4], "M1", titles[4], "M1", Color.cyan, Color.BLACK);
 
 		fields[5] = new GUI_Street(titles[5], "M1", titles[5], "M1", Color.cyan, Color.BLACK);
+//		street[5] = new GUI_Street(titles[5], "M1", titles[5], "M1", Color.cyan, Color.BLACK);
 
 		fields[6] = new GUI_Street(titles[6], "", titles[6], "", Color.WHITE, Color.BLACK);
+//		street[6] = new GUI_Street(titles[6], "", titles[6], "", Color.WHITE, Color.BLACK);
 
 		fields[7] = new GUI_Street(titles[7], "M2", titles[7], "M2", Color.MAGENTA, Color.BLACK);
+//		street[7] = new GUI_Street(titles[7], "M2", titles[7], "M2", Color.MAGENTA, Color.BLACK);
 
 		fields[8] = new GUI_Street(titles[8], "M2", titles[8], "M2", Color.magenta, Color.BLACK);
+//		street[8] = new GUI_Street(titles[8], "M2", titles[8], "M2", Color.magenta, Color.BLACK);
 
 		fields[9] = new GUI_Chance(titles[9], "", titles[9], Color.white, Color.BLACK);
 
@@ -93,6 +108,9 @@ public class GUI_Test {
 		fields[23] = new GUI_Street(titles[23], "M5", titles[23], "M5", Color.BLUE, Color.WHITE);
 		gui = new GUI(fields, Color.LIGHT_GRAY);			
 
+		long t1 = System.currentTimeMillis();
+		System.out.println("GUI'en starter på "+ (t1-t0) + "ms");
+		
 //		System.out.println(Arrays.toString(titles));
 		numberOfPlayers = gui.getUserInteger("Indtast antal spillere", 2, 4);
 //		System.out.println(numberOfPlayers);
