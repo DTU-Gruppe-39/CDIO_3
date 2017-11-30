@@ -42,6 +42,7 @@ public class Spil {
 		case 2:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
 				Spil turn = new Spil();
+				GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(whosTurn).getName(), "Roll");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
@@ -53,6 +54,7 @@ public class Spil {
 		case 3:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false) {
 				Spil turn = new Spil();
+				GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(whosTurn).getName(), "Roll");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
@@ -65,6 +67,7 @@ public class Spil {
 		case 4:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false && ListOfPlayers.getPlayers(4).isDead() == false) {
 				Spil turn = new Spil();
+				GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(whosTurn).getName(), "Roll");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
@@ -229,7 +232,6 @@ public class Spil {
 			return false;
 		}
 	}
-
 
 	//Update the balance depending on the field	
 	//[Attributes] = [FieldNumb, rent, color, isOwned, owner, isOwnable]
