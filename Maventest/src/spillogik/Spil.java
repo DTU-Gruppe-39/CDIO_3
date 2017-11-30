@@ -36,7 +36,7 @@ public class Spil {
 
 		//Create dice
 		TwoDice dice = new TwoDice();
-
+		ListOfPlayers.addFunds(GUI_Test.getNumberOfPlayers());
 
 		switch (GUI_Test.getNumberOfPlayers()) {
 		case 2:
@@ -48,12 +48,6 @@ public class Spil {
 					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
 			}
-			//Find out who has most money, and declare them the winner
-			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
-				//won
-			} else {
-				//won
-			}
 			break;
 		case 3:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false) {
@@ -63,12 +57,6 @@ public class Spil {
 				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
 					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
-			}
-			//Find out who has most money, and declare them the winner
-			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
-				//won
-			} else {
-				//won
 			}
 			break;
 
@@ -80,13 +68,6 @@ public class Spil {
 				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
 					ListOfPlayers.getPlayers(whosTurn).setDead(true);
 				}
-			}
-
-			//Find out who has most money, and declare them the winner
-			if (ListOfPlayers.getPlayers(1).getBalance() > 3000) {
-				//won
-			} else {
-				//won
 			}
 			break;
 
