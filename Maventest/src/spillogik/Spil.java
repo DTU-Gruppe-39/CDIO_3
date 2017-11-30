@@ -100,6 +100,7 @@ public class Spil {
 			ListOfPlayers.getPlayers(whosTurn).setJailed(true);
 			ListOfPlayers.getPlayers(whosTurn).setCurrentField(6);
 			ListOfPlayers.getPlayers(whosTurn).setNewBalance(-1);
+			GUI_Test.getFields(18).removeAllCars();
 
 		}
 	}
@@ -134,10 +135,10 @@ public class Spil {
 			nextField = (currField + diceSum) % 24;
 			player.setNewBalance(2);
 		}
+		GUI_Test.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).removeAllCars();
 		ListOfPlayers.getPlayers(whosTurn).setCurrentField(nextField);
 		
 		//Move player on GUI
-//		GUI_Test.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).removeAllCars(player.getName());
 		GUI_Test.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setCar(GUI_Test.getGuiPlayers(whosTurn), true);
 	}
 
@@ -251,14 +252,14 @@ public class Spil {
 					ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setNewBalance(2 * (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
 					
 					//Update recievers balance on GUI
-//					GUI_Test.gui.setBalance(ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getName(), ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getBalance());
+					GUI_Test.getGuiPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setBalance(ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getBalance());
 				} else {
 					//Pay normal rent
 					ListOfPlayers.getPlayers(whosTurn).setNewBalance(-(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
 					ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setNewBalance(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]);
 					
 					//Update recievers balance on GUI
-//					GUI_Test.gui.setBalance(ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getName(), ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getBalance());
+					GUI_Test.getGuiPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setBalance(ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getBalance());
 				}
 			}
 
@@ -269,7 +270,8 @@ public class Spil {
 				setOwner(ListOfPlayers.getPlayers(whosTurn));
 			}
 		}
-//		GUI_Test.gui.setBalance(ListOfPlayers.getPlayers(whosTurn).getName(), ListOfPlayers.getPlayers(whosTurn).getBalance());
+		//Update whosTurn's players balance on GUI
+		GUI_Test.getGuiPlayers(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setBalance(ListOfPlayers.getPlayers(whosTurn).getBalance());
 	}
 
 	public void setOwner(Player player) {
