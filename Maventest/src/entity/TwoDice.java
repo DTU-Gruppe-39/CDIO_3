@@ -2,17 +2,17 @@
 
 public class TwoDice {
 
-	private int die1;	//value of 1st die.
+	private static int die1;	//value of 1st die.
 	private int die2;	//value of 2nd die.
-	private int faces = 6;
+	private static int faces = 6;
 
 	public TwoDice() {
-		this.die1 = 0;
+		TwoDice.die1 = 0;
 //		this.die2 = 0;		// Add if you need 2 dice
 	}
 	
 	
-	public void roll() {		//Rolls both dice to a value between 1 and 6.
+	public static void roll() {		//Rolls both dice to a value between 1 and 6.
 		//die1
 		double d1=(float)Math.random();		// [0 ; 1[
 		double d2 = d1*faces;				// [0 ; 6[
