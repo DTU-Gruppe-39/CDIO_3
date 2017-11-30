@@ -16,8 +16,13 @@ public class GUI_Test {
 	private static String [] names;
 	private static int numberOfPlayers;
 	public static GUI gui;
+	private static GUI_Field[] fields;
 	
 	
+	public static GUI_Field getFields(int index) {
+		return fields[index];
+	}
+
 	public static String[] getNames() {
 		return names;
 	}
@@ -30,7 +35,7 @@ public class GUI_Test {
 	public static void GUILauncher() throws IOException {
 		readText();
 
-		GUI_Field[] fields = new GUI_Field[24];
+		 fields = new GUI_Field[24];
 
 		//	Opretter alle felterne
 

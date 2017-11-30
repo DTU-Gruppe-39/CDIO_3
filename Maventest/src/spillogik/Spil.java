@@ -137,8 +137,8 @@ public class Spil {
 		ListOfPlayers.getPlayers(whosTurn).setCurrentField(nextField);
 		
 		//Move player on GUI
-		GUI_Test.gui.removeAllCars(player.getName());
-		GUI_Test.gui.setCar(nextField, player.getName());
+//		GUI_Test.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).removeAllCars(player.getName());
+		GUI_Test.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setCar(player, true);
 	}
 
 	public static void fillFields() {
