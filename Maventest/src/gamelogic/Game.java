@@ -8,7 +8,7 @@ import entity.Player;
 import entity.TwoDice;
 import gui_main.GUI;
 
-public class Spil {
+public class Game {
 	final static int MIN_POINTS = 0;
 	private static int whosTurn;
 
@@ -41,7 +41,7 @@ public class Spil {
 		switch (GUI_Test.getNumberOfPlayers()) {
 		case 2:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
-				Spil turn = new Spil();
+				Game turn = new Game();
 				GUI_Test.gui.getUserButtonPressed("                                            Det er: " + ListOfPlayers.getPlayers(whosTurn).getName() + "'s tur", "Kast");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
@@ -53,7 +53,7 @@ public class Spil {
 			break;
 		case 3:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false) {
-				Spil turn = new Spil();
+				Game turn = new Game();
 				GUI_Test.gui.getUserButtonPressed("                                            Det er: " + ListOfPlayers.getPlayers(whosTurn).getName() + "'s tur", "Kast");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
@@ -66,7 +66,7 @@ public class Spil {
 
 		case 4:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false && ListOfPlayers.getPlayers(4).isDead() == false) {
-				Spil turn = new Spil();
+				Game turn = new Game();
 				GUI_Test.gui.getUserButtonPressed("                                            Det er: " + ListOfPlayers.getPlayers(whosTurn).getName() + "'s tur", "Kast");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
