@@ -2,7 +2,7 @@ import java.io.IOException;
 
 import boundary.GUI_Test;
 import entity.ListOfPlayers;
-import spillogik.Spil;
+import gamelogic.Spil;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
