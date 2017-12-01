@@ -71,9 +71,6 @@ public class Spil {
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
-				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
-					ListOfPlayers.getPlayers(whosTurn).setDead(true);
-				}
 			}
 			break;
 
@@ -115,6 +112,11 @@ public class Spil {
 		handleField(ListOfPlayers.getPlayers(whosTurn).getCurrentField(), player);
 		goToJail();
 //		updateGUI(field, player, diceSum);
+		
+		//Set isDead = true
+		if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
+			ListOfPlayers.getPlayers(whosTurn).setDead(true);
+		}
 
 		if (whosTurn == GUI_Test.getNumberOfPlayers()) {
 			whosTurn = 1;
