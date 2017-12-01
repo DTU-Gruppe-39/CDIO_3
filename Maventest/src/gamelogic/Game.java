@@ -45,10 +45,6 @@ public class Game {
 				GUI_Test.gui.getUserButtonPressed("                                            Det er: " + ListOfPlayers.getPlayers(whosTurn).getName() + "'s tur", "Kast");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
-
-				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
-					ListOfPlayers.getPlayers(whosTurn).setDead(true);
-				}
 			}
 			break;
 		case 3:
@@ -57,10 +53,6 @@ public class Game {
 				GUI_Test.gui.getUserButtonPressed("                                            Det er: " + ListOfPlayers.getPlayers(whosTurn).getName() + "'s tur", "Kast");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
-
-				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
-					ListOfPlayers.getPlayers(whosTurn).setDead(true);
-				}
 			}
 			break;
 
@@ -70,10 +62,6 @@ public class Game {
 				GUI_Test.gui.getUserButtonPressed("                                            Det er: " + ListOfPlayers.getPlayers(whosTurn).getName() + "'s tur", "Kast");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
-
-				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
-					ListOfPlayers.getPlayers(whosTurn).setDead(true);
-				}
 			}
 			break;
 
@@ -114,7 +102,10 @@ public class Game {
 		movePlayer(player, diceSum);
 		handleField(ListOfPlayers.getPlayers(whosTurn).getCurrentField(), player);
 		goToJail();
-//		updateGUI(field, player, diceSum);
+
+		if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
+			ListOfPlayers.getPlayers(whosTurn).setDead(true);
+		}
 
 		if (whosTurn == GUI_Test.getNumberOfPlayers()) {
 			whosTurn = 1;
