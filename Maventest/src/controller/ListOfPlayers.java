@@ -1,8 +1,9 @@
-package entity;
+package controller;
 
 import java.util.Arrays;
 
 import boundary.GUI_GUI;
+import entity.Player;
 
 public class ListOfPlayers {
 

@@ -1,7 +1,7 @@
+package controller;
 import java.io.IOException;
 
 import boundary.GUI_GUI;
-import entity.ListOfPlayers;
 import gamelogic.Game;
 
 public class Main {

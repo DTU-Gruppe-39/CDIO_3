@@ -3,7 +3,7 @@ package gamelogic;
 import java.io.IOException;
 
 import boundary.GUI_GUI;
-import entity.ListOfPlayers;
+import controller.ListOfPlayers;
 import entity.Player;
 import entity.TwoDice;
 import gui_main.GUI;
