@@ -42,7 +42,7 @@ public class Spil {
 		case 2:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
 				Spil turn = new Spil();
-				GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(whosTurn).getName(), "Roll");
+				GUI_Test.gui.getUserButtonPressed("                                            Det er: " + ListOfPlayers.getPlayers(whosTurn).getName() + "'s tur", "Kast");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
@@ -54,7 +54,7 @@ public class Spil {
 		case 3:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false) {
 				Spil turn = new Spil();
-				GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(whosTurn).getName(), "Roll");
+				GUI_Test.gui.getUserButtonPressed("                                            Det er: " + ListOfPlayers.getPlayers(whosTurn).getName() + "'s tur", "Kast");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
@@ -67,7 +67,7 @@ public class Spil {
 		case 4:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false && ListOfPlayers.getPlayers(4).isDead() == false) {
 				Spil turn = new Spil();
-				GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(whosTurn).getName(), "Roll");
+				GUI_Test.gui.getUserButtonPressed("                                            Det er: " + ListOfPlayers.getPlayers(whosTurn).getName() + "'s tur", "Kast");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
 
