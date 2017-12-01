@@ -1,4 +1,4 @@
-package spillogik;
+package gamelogic;
 
 import java.io.IOException;
 
