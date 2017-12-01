@@ -1,12 +1,9 @@
 package gamelogic;
 
-import java.io.IOException;
-
 import boundary.GUI_GUI;
 import controller.ListOfPlayers;
 import entity.Player;
 import entity.TwoDice;
-import gui_main.GUI;
 
 public class Game {
 	final static int MIN_POINTS = 0;
