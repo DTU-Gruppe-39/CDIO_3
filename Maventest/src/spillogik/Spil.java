@@ -138,7 +138,7 @@ public class Spil {
 			nextField = (currField + diceSum) % 24;
 			player.setNewBalance(2);
 		}
-		GUI_Test.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).removeAllCars();
+		GUI_Test.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setCar(GUI_Test.getGuiPlayers(whosTurn), false);
 		ListOfPlayers.getPlayers(whosTurn).setCurrentField(nextField);
 		
 		//Move player on GUI
@@ -280,7 +280,7 @@ public class Spil {
 	public void setOwner(Player player) {
 		Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4] = whosTurn;
 		Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][3] = 1;
-//		GUI_Test.getStreet(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setOwnableLabel(ListOfPlayers.getPlayers(whosTurn).getName());
+		GUI_Test.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setDescription("Ejes af: " + ListOfPlayers.getPlayers(whosTurn).getName());
 	}
 
 
