@@ -2,7 +2,7 @@ package entity;
 
 public class Player {
 	private String name;
-	private TwoDice dice;
+//	private TwoDice dice;
 	private AccountBalance account;
 	private boolean isDead;
 	private boolean isWinner;
@@ -11,9 +11,9 @@ public class Player {
 
 	
 	public Player () {
-		TwoDice dice = new TwoDice();
+//		TwoDice dice = new TwoDice();
 		this.account = new AccountBalance(0);
-		this.dice = dice;
+//		this.dice = dice;
 		isDead = false;
 		isWinner = false;
 		isJailed = false;
@@ -27,9 +27,9 @@ public class Player {
 		this.currentField = currentField;
 	}
 
-	public TwoDice getDice() {
-		return dice;
-	}
+//	public TwoDice getDice() {
+//		return dice;
+//	}
 
 	public int getBalance() {
 		return this.account.balance;
