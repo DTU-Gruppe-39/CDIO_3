@@ -2,7 +2,7 @@ package entity;
 
 import java.util.Arrays;
 
-import boundary.GUI_Test;
+import boundary.GUI_GUI;
 
 public class ListOfPlayers {
 
@@ -15,7 +15,7 @@ public class ListOfPlayers {
 	} 
 
 	public void addplayer(int amountOfPlayers){
-		String[] names = GUI_Test.getNames();
+		String[] names = GUI_GUI.getNames();
 		for (int i=1; i <= amountOfPlayers; i++){
 			Players[i].setName(names[(i - 1)]);
 		}	
