@@ -1,12 +1,9 @@
 package gamelogic;
 
-import java.io.IOException;
-
-import boundary.GUI_Test;
-import entity.ListOfPlayers;
+import boundary.GUI_GUI;
+import controller.ListOfPlayers;
 import entity.Player;
 import entity.TwoDice;
-import gui_main.GUI;
 
 public class Game {
 	final static int MIN_POINTS = 0;
@@ -32,45 +29,36 @@ public class Game {
 		//Game logic
 
 		//Randomize whosTurn
-		whosTurn = (int) Math.ceil(Math.random() * GUI_Test.getNumberOfPlayers());
+		whosTurn = (int) Math.ceil(Math.random() * GUI_GUI.getNumberOfPlayers());
 
 		//Create dice
 		TwoDice dice = new TwoDice();
-		ListOfPlayers.addFunds(GUI_Test.getNumberOfPlayers());
+		ListOfPlayers.addFunds(GUI_GUI.getNumberOfPlayers());
 
-		switch (GUI_Test.getNumberOfPlayers()) {
+		switch (GUI_GUI.getNumberOfPlayers()) {
 		case 2:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false) {
 				Game turn = new Game();
-				GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(whosTurn).getName(), "Roll");
+				GUI_GUI.gui.getUserButtonPressed("                                            Det er: " + ListOfPlayers.getPlayers(whosTurn).getName() + "'s tur", "Kast");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
-
-				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
-					ListOfPlayers.getPlayers(whosTurn).setDead(true);
-				}
 			}
 			break;
 		case 3:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false) {
 				Game turn = new Game();
-				GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(whosTurn).getName(), "Roll");
+				GUI_GUI.gui.getUserButtonPressed("                                            Det er: " + ListOfPlayers.getPlayers(whosTurn).getName() + "'s tur", "Kast");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
-
-				if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
-					ListOfPlayers.getPlayers(whosTurn).setDead(true);
-				}
 			}
 			break;
 
 		case 4:
 			while (ListOfPlayers.getPlayers(1).isDead() == false && ListOfPlayers.getPlayers(2).isDead() == false && ListOfPlayers.getPlayers(3).isDead() == false && ListOfPlayers.getPlayers(4).isDead() == false) {
 				Game turn = new Game();
-				GUI_Test.gui.getUserButtonPressed("                                            Current turn: " + ListOfPlayers.getPlayers(whosTurn).getName(), "Roll");
+				GUI_GUI.gui.getUserButtonPressed("                                            Det er: " + ListOfPlayers.getPlayers(whosTurn).getName() + "'s tur", "Kast");
 				TwoDice.roll();
 				turn.updateTurn(dice.getdie1(), ListOfPlayers.getPlayers(whosTurn));
-
 			}
 			break;
 
@@ -78,16 +66,16 @@ public class Game {
 			break;
 		}
 		int temp = 0;
-		for(int i = 1; i <= GUI_Test.getNumberOfPlayers(); i++) {
+		for(int i = 1; i <= GUI_GUI.getNumberOfPlayers(); i++) {
 			if(ListOfPlayers.getPlayers(i).getBalance() > temp)
 				temp = ListOfPlayers.getPlayers(i).getBalance();
 		}
 
-		for(int i = 1; i <= GUI_Test.getNumberOfPlayers(); i++) {
+		for(int i = 1; i <= GUI_GUI.getNumberOfPlayers(); i++) {
 			if(ListOfPlayers.getPlayers(i).getBalance() == temp) {
 				ListOfPlayers.getPlayers(i).setWinner(true);
 				System.out.println("" + ListOfPlayers.getPlayers(i).getName() + " har vundet");
-				GUI_Test.gui.showMessage("" + ListOfPlayers.getPlayers(i).getName() + " har vundet");
+				GUI_GUI.gui.showMessage("" + ListOfPlayers.getPlayers(i).getName() + " har vundet");
 			}	
 		}
 	}
@@ -98,9 +86,9 @@ public class Game {
 			ListOfPlayers.getPlayers(whosTurn).setJailed(true);
 			ListOfPlayers.getPlayers(whosTurn).setCurrentField(6);
 			ListOfPlayers.getPlayers(whosTurn).setNewBalance(-1);
-			GUI_Test.getFields(18).removeAllCars();
+			GUI_GUI.getFields(18).removeAllCars();
 			//Move player on GUI to prison
-			GUI_Test.getFields(6).setCar(GUI_Test.getGuiPlayers(whosTurn), true);
+			GUI_GUI.getFields(6).setCar(GUI_GUI.getGuiPlayers(whosTurn), true);
 
 		}
 	}
@@ -111,14 +99,12 @@ public class Game {
 		movePlayer(player, diceSum);
 		handleField(ListOfPlayers.getPlayers(whosTurn).getCurrentField(), player);
 		goToJail();
-//		updateGUI(field, player, diceSum);
-		
-		//Set isDead = true
+
 		if (ListOfPlayers.getPlayers(whosTurn).getBalance() == 0){
 			ListOfPlayers.getPlayers(whosTurn).setDead(true);
 		}
 
-		if (whosTurn == GUI_Test.getNumberOfPlayers()) {
+		if (whosTurn == GUI_GUI.getNumberOfPlayers()) {
 			whosTurn = 1;
 		}
 		else {
@@ -127,7 +113,7 @@ public class Game {
 	}
 
 	public static void movePlayer(Player player, int diceSum) {
-		GUI_Test.gui.setDie(diceSum);
+		GUI_GUI.gui.setDie(diceSum);
 		int nextField = 0;
 		int currField;
 		//Get current field of player
@@ -140,11 +126,11 @@ public class Game {
 			nextField = (currField + diceSum) % 24;
 			player.setNewBalance(2);
 		}
-		GUI_Test.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setCar(GUI_Test.getGuiPlayers(whosTurn), false);
+		GUI_GUI.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setCar(GUI_GUI.getGuiPlayers(whosTurn), false);
 		ListOfPlayers.getPlayers(whosTurn).setCurrentField(nextField);
 		
 		//Move player on GUI
-		GUI_Test.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setCar(GUI_Test.getGuiPlayers(whosTurn), true);
+		GUI_GUI.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setCar(GUI_GUI.getGuiPlayers(whosTurn), true);
 	}
 
 	public static void fillFields() {
@@ -257,14 +243,14 @@ public class Game {
 					ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setNewBalance(2 * (Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
 					
 					//Update recievers balance on GUI
-					GUI_Test.getGuiPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setBalance(ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getBalance());
+					GUI_GUI.getGuiPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setBalance(ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getBalance());
 				} else {
 					//Pay normal rent
 					ListOfPlayers.getPlayers(whosTurn).setNewBalance(-(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]));
 					ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setNewBalance(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][1]);
 					
 					//Update recievers balance on GUI
-					GUI_Test.getGuiPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setBalance(ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getBalance());
+					GUI_GUI.getGuiPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).setBalance(ListOfPlayers.getPlayers(Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4]).getBalance());
 				}
 			}
 
@@ -276,13 +262,13 @@ public class Game {
 			}
 		}
 		//Update whosTurn's players balance on GUI
-		GUI_Test.getGuiPlayers(whosTurn).setBalance(ListOfPlayers.getPlayers(whosTurn).getBalance());
+		GUI_GUI.getGuiPlayers(whosTurn).setBalance(ListOfPlayers.getPlayers(whosTurn).getBalance());
 	}
 
 	public void setOwner(Player player) {
 		Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][4] = whosTurn;
 		Fields[ListOfPlayers.getPlayers(whosTurn).getCurrentField()][3] = 1;
-		GUI_Test.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setDescription("Ejes af: " + ListOfPlayers.getPlayers(whosTurn).getName());
+		GUI_GUI.getFields(ListOfPlayers.getPlayers(whosTurn).getCurrentField()).setDescription("Ejes af: " + ListOfPlayers.getPlayers(whosTurn).getName());
 	}
 
 

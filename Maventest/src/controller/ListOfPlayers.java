@@ -1,8 +1,8 @@
-package entity;
+package controller;
 
-import java.util.Arrays;
 
-import boundary.GUI_Test;
+import boundary.GUI_GUI;
+import entity.Player;
 
 public class ListOfPlayers {
 
@@ -15,7 +15,7 @@ public class ListOfPlayers {
 	} 
 
 	public void addplayer(int amountOfPlayers){
-		String[] names = GUI_Test.getNames();
+		String[] names = GUI_GUI.getNames();
 		for (int i=1; i <= amountOfPlayers; i++){
 			Players[i].setName(names[(i - 1)]);
 		}	
@@ -36,11 +36,11 @@ public class ListOfPlayers {
 //		}		
 //		return false;
 //	}
-
-	public int nextPlayer(int index){
-		index = ++index % Players.length;
-		return index;
-	}
+//
+//	public int nextPlayer(int index){
+//		index = ++index % Players.length;
+//		return index;
+//	}
 	public static void addFunds(int amountOfPlayers) {
 		switch (amountOfPlayers) {
 		case 2:

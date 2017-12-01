@@ -11,7 +11,7 @@ import gui_fields.GUI_Player;
 import gui_fields.GUI_Start;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
-public class GUI_Test {
+public class GUI_GUI {
 	private static String [] titles;
 	private static String [] names;
 	private static int numberOfPlayers;
@@ -203,7 +203,7 @@ public class GUI_Test {
 	}
 
 	public static void setTitles(String [] titles) {
-		GUI_Test.titles = titles;
+		GUI_GUI.titles = titles;
 	}
 
 	public static void readText() throws IOException {
